@@ -1,0 +1,39 @@
+{
+  "pages": [
+    "pages/square/square",
+    "pages/add/add",
+    "pages/profile/profile",
+    "pages/dengru/newpage"
+  ],
+  "window": {
+    "navigationBarBackgroundColor": "#ffffff",
+    "navigationBarTextStyle": "black",
+    "navigationBarTitleText": "广场"
+  },
+  "tabBar": {
+    "color": "#a6a6a6",
+    "selectedColor": "#3cc51f",
+    "backgroundColor": "#ffffff",
+    "borderStyle": "black",
+    "list": [
+      {
+        "pagePath": "pages/square/square",
+        "text": "广场",
+        "iconPath": "icons/home.png",
+        "selectedIconPath": "icons/home-active.png"
+      },
+      {
+        "pagePath": "pages/add/add",
+        "text": "添加",
+        "iconPath": "icons/business.png",
+        "selectedIconPath": "icons/business-active.png"
+      },
+      {
+        "pagePath": "pages/profile/profile",
+        "text": "我的",
+        "iconPath": "icons/usercenter.png",
+        "selectedIconPath": "icons/usercenter-active.png"
+      }
+    ]
+  }
+}

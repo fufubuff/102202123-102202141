@@ -1,0 +1,38 @@
+/* pages/square/square.wxss */
+.container {
+  display: flex;
+  flex-direction: column;
+  height: 100%;
+}
+
+.tabs {
+  display: flex;
+  justify-content: space-around;
+}
+
+.tab {
+  background-color: white;
+  color: black;
+  padding: 10px;
+  border: none;
+}
+
+.tab.active {
+  color: blue;
+}
+
+.list {
+  flex: 1;
+  overflow-y: auto;
+}
+
+.item {
+  padding: 10px;
+  border-bottom: 1px solid #ccc;
+}
+
+.footer {
+  display: flex;
+  justify-content: space-around;
+  padding: 10px 0;
+}

@@ -1,0 +1,87 @@
+/* 页面样式文件 pages/index/index.wxss */
+page {
+  height: 100%;
+  width: 100%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  overflow: hidden;
+}
+
+.background-image {
+  width: 100%;
+  height: 100%;
+  position: absolute;
+  top: 0;
+  left: 0;
+  z-index: -1;  /* 确保图片在页面内容之后 */
+}
+/* pages/login/login.wxss */
+.container {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  height: 100%;
+  margin-top: 130px;
+}
+
+.background-image {
+  width: 100%;
+  height: 100%;
+  position: absolute;
+  top: 0;
+  left: 0;
+  z-index: -1;
+}
+
+.input-group {
+  display: flex; /* 使用flex布局 */
+  align-items: center; /* 垂直居中对齐 */
+  margin-bottom: 15px; /* 调整间距 */
+}
+.label {
+  font-weight: bold; /* 字体加粗 */
+  margin-right: 10px;
+  font-size: 16px; /* 设置标签与输入框之间的间隔 */
+  white-space: nowrap; /* 防止文字换行 */
+}
+
+.input-field {
+  width: 300%;/* 输入框占据剩余空间 */
+  padding: 10px; /* 内边距 */
+  font-size: 12px;
+}
+
+.login-button {
+  width: 120%;  /* 按钮宽度 */
+  height: 50px; /* 按钮高度 */
+  background-color: #007aff; /* 按钮背景色 */
+  color: white; /* 文字颜色 */
+  border-radius: 25px; /* 圆角度 */
+  margin-top: 8px; /* 上边距 */
+  margin-bottom: 20px; /* 下边距 */
+  margin-left: -15px; /* 左边自动边距，居中对齐 */
+  margin-right: auto; /* 右边自动边距，居中对齐 */
+}
+
+
+
+.custom-navbar {
+  display: flex;
+  justify-content: center; /* 水平居中 */
+  align-items: center; /* 垂直居中 */
+  height: 40px; /* 根据实际情况调整 */
+  background-color: #ffffff;
+}
+
+.navbar-title {
+  font-weight: bold; /* 加粗 */
+  color: black;
+}
+.divider {
+  height: 100px;  /* 线的粗细 */
+  width: 80%;  /* 线的宽度，相对于父容器 */
+  background-color: #00000000;  /* 线的颜色 */
+  margin: 100px 0;  /* 线的上下边距 */
+}
