@@ -1,9 +1,14 @@
 {
   "pages": [
+    "pages/profile/profile",
+    "pages/register/register",
+    "pages/recruitmentDetail/recruitmentDetail",
+    "pages/friends/friends",
+    "pages/chat/chat",
     "pages/square/square",
     "pages/add/add",
-    "pages/profile/profile",
-    "pages/dengru/newpage"
+    "pages/dengru/newpage",
+    "pages/avatarSelect/avatarSelect"
   ],
   "window": {
     "navigationBarBackgroundColor": "#ffffff",
@@ -21,6 +26,12 @@
         "text": "广场",
         "iconPath": "icons/home.png",
         "selectedIconPath": "icons/home-active.png"
+      },
+      {
+        "pagePath": "pages/friends/friends",
+        "text": "私信",
+        "iconPath": "icons/goods.png",
+        "selectedIconPath": "icons/goods-active.png"
       },
       {
         "pagePath": "pages/add/add",
