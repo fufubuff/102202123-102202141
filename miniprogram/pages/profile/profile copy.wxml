@@ -1,0 +1,67 @@
+<view class="container">
+  <!-- 个人资料部分 -->
+  <view class="profile-container">
+    <image class="background-img" src="{{backgroundUrl}}" mode="aspectFill"></image>
+    <view class="avatar-container">
+      <text class="username">{{username}}</text>
+      <image class="avatar" src="{{avatarUrl}}" mode="aspectFill"></image>
+    </view>
+    <text class="slogan">{{slogan}}</text>
+  </view>
+
+  <!-- Tab栏，放置在中间 -->
+  <view class="tab-bar">
+    <!-- 个人合作评价 Tab -->
+    <view class="tab-item" bindtap="switchTab" data-index="0">
+      <image 
+        class="tab-icon" 
+        src="{{tabIndex === 0 ? '/images/review-active.png' : '/images/review-inactive.png'}}" 
+        mode="aspectFit">
+      </image>
+    </view>
+    <!-- 组队招募 Tab -->
+    <view class="tab-item" bindtap="switchTab" data-index="1">
+      <image 
+        class="tab-icon" 
+        src="{{tabIndex === 1 ? '/images/recruitment-active.png' : '/images/recruitment-inactive.png'}}" 
+        mode="aspectFit">
+      </image>
+    </view>
+  </view>
+
+  <!-- 可滑动的内容部分 -->
+  <scroll-view class="content-scroll" scroll-y="true">
+    <!-- 个人合作评价内容 -->
+    <view wx:if="{{tabIndex === 0}}">
+      <view class="reviews">
+        <block wx:for="{{cooperationReviews}}" wx:key="index">
+          <view class="review-item">
+            <text>{{item.reviewer}}: {{item.content}}</text>
+            <text class="time-info">{{item.time}}</text>
+          </view>
+        </block>
+      </view>
+    </view>
+
+    <!-- 组队招募内容 -->
+    <view wx:if="{{tabIndex === 1}}">
+      <view class="team-recruitments">
+        <block wx:for="{{teamRecruitments}}" wx:key="index">
+          <view class="recruitment-item">
+            <text class="recruitment-title">{{item.title}}</text>
+            <text>{{item.details}}</text>
+            <view class="recruitment-tags">
+              <block wx:for="{{item.tags}}" wx:key="index">
+                <text class="tag">{{tag}}</text>
+              </block>
+            </view>
+            <text class="time-info">{{item.time}}</text>
+          </view>
+        </block>
+      </view>
+    </view>
+  </scroll-view>
+  <view class="floating-button" bindtap="openChat">
+    <image class="floating-icon" src="/images/message-icon.jpg" mode="aspectFit"></image>
+  </view>
+</view>
