@@ -1,0 +1,23 @@
+<view class="container">
+  <!-- 上半部分显示当前头像 -->
+  <view class="current-avatar-section">
+    <image class="current-avatar" src="{{currentAvatar}}" mode="aspectFill"></image>
+  </view>
+
+  <!-- 下半部分显示可选头像 -->
+  <view class="avatar-selection-section">
+    <view class="avatar-selection">
+      <block wx:for="{{defaultAvatars}}" wx:key="index">
+        <image
+          class="avatar-option {{selectedAvatar === item ? 'selected' : ''}}"
+          src="{{item}}"
+          bindtap="selectAvatar"
+          data-url="{{item}}"
+        ></image>
+      </block>
+    </view>
+  </view>
+
+  <!-- 确认按钮 -->
+  <button class="confirm-button" bindtap="confirmSelection">确认选择</button>
+</view>

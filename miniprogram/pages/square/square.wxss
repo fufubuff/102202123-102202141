@@ -1,0 +1,147 @@
+page, .container {
+  height: 100%;
+}
+.container {
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  background-color: #fff;
+  z-index: 1000;
+  padding: 20px 0; /* 更新内边距以考虑固定的标签栏 */
+}
+.background-image {
+  position: fixed; /* 固定定位，防止滚动时移动 */
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  z-index: -1; /* 置于最底层 */
+}
+
+.tab-bar {
+  display: flex;
+  justify-content: space-around;
+  background-color: #f8f8f8;
+  padding: 10px 0;
+  border-bottom: none;
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  z-index: 1000;
+}
+
+.tab-item {
+  flex: 1;
+  text-align: center;
+}
+
+.tab-text {
+  font-size: 16px;
+  padding: 10px;
+  color: #777; /* 默认颜色 */
+}
+
+.tab-text.active {
+  color: #007bff; /* 蓝色高亮颜色 */
+  font-weight: bold;
+}
+
+/* 页面内容区域的样式调整，确保与固定标签栏不冲突 */
+.resumes, .recruitment-posts {
+  padding-top: 60px; /* 根据标签栏高度进行调整 */
+  padding-bottom: 20px; /* 添加底部内边距 */
+  padding-left: 20px;
+  padding-right: 20px;
+}
+
+.resume-item, .recruitment-item {
+  background-color: #fff;
+  padding: 15px;
+  margin: 10px 0;
+  border-radius: 5px;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+  cursor: pointer;
+}
+
+.resume-header, .recruitment-header {
+  display: flex;
+  align-items: center;
+}
+
+.resume-icon, .recruitment-icon {
+  width: 40px;
+  height: 40px;
+  border-radius: 20px;
+  margin-right: 10px;
+}
+
+.resume-name, .recruitment-title {
+  font-size: 18px;
+  font-weight: bold;
+}
+
+.resume-info, .recruitment-info {
+  display: block;
+  color: #666;
+  margin-top: 5px;
+  font-size: 16px;
+}
+.field-icon {
+  width: 20px; /* 根据需要调整图标的宽度 */
+  height: 20px; /* 根据需要调整图标的高度 */
+  margin-right: 5px; /* 图标和文字之间的间距 */
+}
+.resume-text {
+  font-size: 16px;  /*名字图标的大小调节*/
+  color: #333;
+}
+.recruitment-posts {
+  margin-top: 20px; /* 为招募部分顶部添加间距 */
+}
+
+.recruitment-item {
+  background-color: #fff;
+  padding: 15px;
+  margin: 0px; 
+  margin-bottom: 10px;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1); /* 添加阴影效果 */
+  display: block; 
+}
+
+.recruitment-title {
+  font-size: 16px;
+  color: #333;
+  font-weight: bold;
+}
+.recruitment-time-container {
+  text-align: right; /* 右对齐文本 */
+  display: block; /* 确保这个容器是块级元素，使时间独立一行 */
+}
+
+.recruitment-time {
+  font-size: 14px;
+  color: #666;
+  margin-top: 5px; /* 时间和标题间添加间距 */
+}
+
+.recruitment-tags {
+  margin-top: 10px; /* 标签区域和其他内容间添加间距 */
+}
+
+.tag {
+  display: inline-block;
+  background-color: #eee; /* 灰色背景 */
+  color: #333; /* 深色文字 */
+  margin: 2px 5px;
+  padding: 2px 8px;
+  border-radius: 10px; /* 轻微的圆角效果 */
+  font-size: 14px;
+}
+.email-info {
+  font-size: 14px; /* 特定于邮箱信息的字体大小 */
+}
+.time-info {
+  font-size: 14px; /* 特定于邮箱信息的字体大小 */
+}

@@ -1,0 +1,27 @@
+<!-- pages/chat/chat.wxml -->
+<view class="chat-container">
+  <!-- 聊天对象信息 -->
+  <view class="chat-header">
+    <image class="chat-avatar" src="{{chatUserInfo.avatarUrl}}" />
+    <text class="chat-nickname">{{chatUserInfo.nickname}}</text>
+  </view>
+
+  <!-- 消息列表 -->
+  <scroll-view class="message-list" scroll-y="true" scroll-into-view="{{scrollIntoView}}">
+  <block wx:for="{{messageList}}" wx:key="id">
+    <view id="msg-{{index}}" class="message-item {{item.fromUserId === currentUserId ? 'message-item-self' : 'message-item-other'}}">
+      <image class="avatar" src="{{item.fromAvatarUrl}}" binderror="onImageError" data-index="{{index}}" />
+      <view class="message-content">
+        <text class="message-text">{{item.content}}</text>
+        <text class="message-time">{{formatTime(item.timestamp)}}</text>
+      </view>
+    </view>
+  </block>
+</scroll-view>
+
+  <!-- 输入区域 -->
+  <view class="input-area">
+    <input class="message-input" placeholder="请输入消息..." bindinput="onInput" bindconfirm="onSendMessage" value="{{inputContent}}" />
+    <button class="send-button" bindtap="onSendMessage">发送</button>
+  </view>
+</view>

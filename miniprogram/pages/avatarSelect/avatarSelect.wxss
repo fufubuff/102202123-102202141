@@ -1,0 +1,52 @@
+.container {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  padding: 20px;
+  background-color: #f9f9f9;
+}
+
+.current-avatar-section {
+  width: 100%;
+  display: flex;
+  justify-content: center;
+  margin-bottom: 20px;
+}
+
+.current-avatar {
+  width: 250px; /* 正方形的尺寸 */
+  height: 250px; /* 正方形的尺寸 */
+  border-radius: 10px;
+  border: 3px solid #3a6bf0;
+  object-fit: cover; /* 保证图片不会被拉伸 */
+}
+
+.avatar-selection-section {
+  width: 100%;
+  padding: 0 20px;
+}
+
+.avatar-selection {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-around;
+}
+
+.avatar-option {
+  width: 100px; /* 调整头像尺寸 */
+  height: 100px; /* 调整头像尺寸 */
+  margin: 1px;
+  border-radius: 5px;
+  border: 2px solid transparent;
+  transition: border-color 0.3s ease, transform 0.3s ease;
+  object-fit: cover;
+}
+
+.avatar-option.selected {
+  border-color: #3a6bf0;
+  transform: scale(1.05);
+}
+
+.confirm-button {
+  background-color: #3a6bf0;
+}

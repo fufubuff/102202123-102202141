@@ -1,0 +1,83 @@
+/* 容器整体 */
+.container {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  padding: 20px;
+  background-color: #ffffff;
+  height: 100vh;
+  overflow-y: scroll;
+}
+
+/* 输入框样式 */
+.input {
+  width: 80%;
+  padding: 10px;
+  margin: 10px 0;
+  border: 1px solid #ccc;
+  border-radius: 5px;
+}
+
+/* 注册按钮样式 */
+.register-button {
+  width: 80%;
+  padding: 10px;
+  margin-top: 20px;
+  background-color: #1977ad;
+  color: white;
+  border: none;
+  border-radius: 5px;
+  font-size: 16px;
+  cursor: pointer;
+}
+
+.register-button:hover {
+  background-color: #045c97;
+}
+
+/* 头像选择区域 */
+.avatar-selection {
+  width: 80%;
+  margin: 20px 0;
+}
+
+.section-title {
+  font-size: 16px;
+  color: #333;
+  margin-bottom: 10px;
+}
+
+/* 头像容器 */
+.avatars-container {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-between;
+}
+
+/* 单个头像样式 */
+.avatar-option {
+  width: 80px;
+  height: 80px;
+  margin-bottom: 10px;
+  border: 2px solid transparent;
+  border-radius: 5px;
+  cursor: pointer;
+  transition: border-color 0.3s ease, transform 0.3s ease;
+}
+
+.avatar-option.selected {
+  border-color: #1173e2;
+  transform: scale(1.05);
+}
+
+/* 响应式设计 */
+@media screen and (max-width: 768px) {
+  .input, .register-button, .avatar-selection {
+    width: 95%;
+  }
+
+  .avatar-option {
+    width: 60px;
+    height: 60px;
+  }
+}

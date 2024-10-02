@@ -1,0 +1,55 @@
+<view class="container">
+  <image class="background-image" src="/images/background.png" mode="aspectFill"></image>
+  <!-- Tab Navigation -->
+  <view class="tab-bar">
+    <!-- Tab for Resume Posting -->
+    <view class="tab-item" bindtap="switchTab" data-index="0">
+      <text class="tab-text {{tabIndex === 0 ? 'active' : ''}}">简历投放</text>
+    </view>
+    <!-- Tab for Recruitment -->
+    <view class="tab-item" bindtap="switchTab" data-index="1">
+      <text class="tab-text {{tabIndex === 1 ? 'active' : ''}}">招募队友</text>
+    </view>
+  </view>
+
+  <!-- Resume Display -->
+<!-- 简历展示 -->
+<view wx:if="{{tabIndex === 0}}">
+  <view class="resumes">
+    <block wx:for="{{resumes}}" wx:key="id">
+      <view class="resume-item">
+        <view class="resume-info">
+          <!-- 图标替换“姓名”文本 -->
+          <image class="field-icon" src="/images/avatar.png"></image>
+          <!-- 姓名内容 -->
+          <text class="resume-text">{{item.name}}</text>
+        </view>
+        <!-- 其他字段 -->
+        <text class="resume-info email-info">邮箱：{{item.email}}</text>
+        <text class="resume-info time-info">时间：{{item.time}}</text>
+      </view>
+    </block>
+  </view>
+</view>
+
+
+  <!-- Recruitment Display -->
+  <view wx:if="{{tabIndex === 1}}">
+  <view class="recruitment-posts">
+    <block wx:for="{{recruitmentPosts}}" wx:key="id">
+      <view class="recruitment-item">
+        <text class="recruitment-title">{{item.title}}</text>
+        <!-- 将时间文本放在独立的view中并应用样式 -->
+        <view class="recruitment-time-container">
+          <text class="recruitment-time">{{item.time}}</text>
+        </view>
+        <view class="recruitment-tags">
+          <block wx:for="{{item.tags}}" wx:for-item="tag" wx:key="index">
+            <text class="tag">{{tag}}</text>
+          </block>
+        </view>
+      </view>
+    </block>
+  </view>
+</view>
+</view>

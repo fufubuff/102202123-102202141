@@ -1,0 +1,113 @@
+/* pages/friends/friends.wxss */
+
+/* 容器 */
+.friends-container {
+  display: flex;
+  flex-direction: column;
+  height: 100vh;
+  background-color: #f5f5f5; /* 整体背景颜色 */
+}
+
+/* 搜索区域 */
+.search-bar {
+  display: flex;
+  padding: 10px;
+  background-color: #ffffff;
+  border-bottom: 1px solid #e0e0e0;
+}
+
+.search-input {
+  flex: 1;
+  height: 35px;
+  padding: 0 10px;
+  border: 1px solid #ccc;
+  border-radius: 18px;
+  font-size: 14px;
+  outline: none;
+}
+
+.search-input:focus {
+  border-color: #3cc51f; /* 聚焦时边框颜色 */
+}
+
+.search-button {
+  margin-left: 10px;
+  padding: 0 15px;
+  background-color: #3cc51f;
+  color: #ffffff;
+  border: none;
+  border-radius: 18px;
+  font-size: 14px;
+  cursor: pointer;
+  outline: none;
+}
+
+.search-button:hover {
+  background-color: #35a11f; /* 悬停时颜色 */
+}
+
+/* 加载指示器 */
+.loading {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  padding: 20px;
+}
+
+.loading text {
+  font-size: 14px;
+  color: #666666;
+}
+
+/* 好友列表和搜索结果 */
+.friends-list {
+  flex: 1;
+  padding: 10px;
+  background-color: #f5f5f5;
+  overflow-y: scroll;
+}
+
+/* 好友项 */
+.friend-item {
+  display: flex;
+  align-items: center;
+  padding: 8px;
+  background-color: #ffffff;
+  margin-bottom: 8px;
+  border-radius: 8px;
+  transition: background-color 0.3s;
+}
+
+.friend-item:hover {
+  background-color: #e6f7ff;
+}
+
+/* 头像 */
+.avatar {
+  width: 40px;
+  height: 40px;
+  border-radius: 20px;
+  margin-right: 10px;
+  object-fit: cover; /* 保持图片比例 */
+}
+
+/* 昵称 */
+.nickname {
+  font-size: 16px;
+  color: #333333;
+  flex: 1; /* 名字占据剩余空间 */
+}
+
+/* 高亮样式 */
+.nickname span {
+  color: #3cc51f; /* 高亮颜色 */
+  font-weight: bold;
+}
+
+/* 无结果提示 */
+.no-results {
+  text-align: center;
+  color: #999999;
+  margin-top: 20px;
+  font-size: 14px;
+}

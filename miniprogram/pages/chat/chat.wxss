@@ -1,0 +1,115 @@
+/* pages/chat/chat.wxss */
+
+/* 聊天容器 */
+.chat-container {
+  display: flex;
+  flex-direction: column;
+  height: 100vh;
+}
+
+/* 聊天头部 */
+.chat-header {
+  display: flex;
+  align-items: center;
+  padding: 10px;
+  background-color: #fff;
+}
+
+.chat-avatar {
+  width: 40px;
+  height: 40px;
+  border-radius: 20px;
+}
+
+.chat-nickname {
+  margin-left: 10px;
+  font-size: 18px;
+  font-weight: bold;
+}
+
+/* 消息列表 */
+.message-list {
+  flex: 1;
+  padding: 10px;
+  background-color: #f5f5f5;
+  overflow-y: scroll;
+}
+
+/* 消息项 */
+.message-item {
+  display: flex;
+  margin-bottom: 15px; 
+}
+
+.message-item-self {
+  flex-direction: row-reverse;
+}
+
+.message-item-other {
+  flex-direction: row;
+}
+
+.avatar {
+  width: 40px;
+  height: 40px;
+  border-radius: 20px;
+}
+
+.message-content {
+  max-width: 60%;
+  padding: 10px;
+  border-radius: 5px;
+  background-color: #fff;
+  margin: 0 10px;
+}
+
+.message-item-self .message-content {
+  background-color: #a0b6ff;
+}
+
+.message-text {
+  font-size: 16px;
+  color: #000;
+  margin-left: 0px;  
+  margin-right: 0px; 
+}
+
+/* 输入区域 */
+.input-area {
+  display: flex;
+  align-items: center;
+  padding: 10px;
+  background-color: #fff;
+}
+
+.message-input {
+  flex: 1;
+  height: 40px;
+  padding: 0px 10px 0px 10px; /* 上右下左 */
+  /* 或者单独设置左侧内边距 */
+  /* padding-left: 10px; */
+  border: 1px solid #ccc;
+  border-radius: 20px;
+}
+
+.send-button {
+  width: 60px;
+  height: 40px;
+  margin-left: 10px;
+  background-color: #8fa9ff;
+  color: #fff;
+  border: none;
+  border-radius: 20px;
+  font-size: 14px; /* 调整为您希望的字体大小 */
+  line-height: 40px; 
+}
+/* 调整您自己的消息项中头像和消息内容的间距 */
+.message-item-self .avatar {
+  margin-right: 15px; /* 头像左侧留出空间 */
+  margin-left: 8px;     /* 头像右侧无间距 */
+}
+
+.message-item-self .message-content {
+  margin-left: 20px;  /* 消息内容右侧留出空间 */
+  margin-right: 0px;    /* 消息内容左侧无间距 */
+}
