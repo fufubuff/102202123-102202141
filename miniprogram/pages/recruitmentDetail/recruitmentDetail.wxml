@@ -1,0 +1,24 @@
+<!--pages/recruitmentDetail/recruitmentDetail.json.wxml-->
+<view class="container">
+  <!-- 加载动画 -->
+  <view wx:if="{{isLoading}}" class="loading">
+    <image src="/images/loading.jpg" mode="aspectFit" class="loading-icon"></image>
+  </view>
+  <!-- 招募详情 -->
+  <view wx:if="{{!isLoading}}" class="recruitment-detail">
+    <!-- 发布者信息 -->
+    <view class="recruiter-info">
+      <image class="avatar" src="{{recruitment.avatarUrl}}" mode="aspectFill"></image>
+      <text class="nickname">{{recruitment.nickname}}</text>
+    </view>
+    <!-- 招募信息 -->
+    <text class="recruitment-title">{{recruitment.title}}</text>
+    <text class="details">{{recruitment.details}}</text>
+    <view class="recruitment-tags">
+      <block wx:for="{{recruitment.tags}}" wx:key="tag">
+        <text class="tag">{{tag}}</text>
+      </block>
+    </view>
+    <text class="time-info">{{recruitment.time}}</text>
+  </view>
+</view>

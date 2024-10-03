@@ -5,26 +5,26 @@ Page({
   data: {
     username: '', // 初始为空，加载后设置为用户昵称
     slogan: '探索世界，发现美好',
-    avatarUrl: '/images/default-avatar.jpg', // 默认头像路径
-    backgroundUrl: '/images/wsp_background.png', // 更换为实际图片路径
+    avatarUrl: 'cloud://fufubuff-3gt0b01y042179cc.6675-fufubuff-3gt0b01y042179cc-1330048678/images/default-avatar.jpg', // 默认头像路径
+    backgroundUrl: 'cloud://fufubuff-3gt0b01y042179cc.6675-fufubuff-3gt0b01y042179cc-1330048678/images/wsp_background.png', // 更换为实际图片路径
     tabIndex: 0, // 当前选中的标签索引
     cooperationReviews: [], // 个人合作评价数据
     teamRecruitments: [], // 组队招募信息
     tabs: ['合作评价', '组队招募'], // 标签名称
     defaultAvatars: [
-      '/images/avatars/avatar1.png',
-      '/images/avatars/avatar2.png',
-      '/images/avatars/avatar3.png',
-      '/images/avatars/avatar4.png',
-      '/images/avatars/avatar5.png',
-      '/images/avatars/avatar6.png',
-      '/images/avatars/avatar7.png',
-      '/images/avatars/avatar8.jpg',
-      '/images/avatars/avatar9.png',
-      '/images/avatars/avatar10.png',
+      'cloud://fufubuff-3gt0b01y042179cc.6675-fufubuff-3gt0b01y042179cc-1330048678/images/avatars/avatar1.png',
+      'cloud://fufubuff-3gt0b01y042179cc.6675-fufubuff-3gt0b01y042179cc-1330048678/images/avatars/avatar2.png',
+      'cloud://fufubuff-3gt0b01y042179cc.6675-fufubuff-3gt0b01y042179cc-1330048678/images/avatars/avatar3.png',
+      'cloud://fufubuff-3gt0b01y042179cc.6675-fufubuff-3gt0b01y042179cc-1330048678/images/avatars/avatar4.png',
+      'cloud://fufubuff-3gt0b01y042179cc.6675-fufubuff-3gt0b01y042179cc-1330048678/images/avatars/avatar5.png',
+      'cloud://fufubuff-3gt0b01y042179cc.6675-fufubuff-3gt0b01y042179cc-1330048678/images/avatars/avatar6.png',
+      'cloud://fufubuff-3gt0b01y042179cc.6675-fufubuff-3gt0b01y042179cc-1330048678/images/avatars/avatar7.png',
+      'cloud://fufubuff-3gt0b01y042179cc.6675-fufubuff-3gt0b01y042179cc-1330048678/images/avatars/avatar8.jpg',
+      'cloud://fufubuff-3gt0b01y042179cc.6675-fufubuff-3gt0b01y042179cc-1330048678/images/avatars/avatar9.png',
+      'cloud://fufubuff-3gt0b01y042179cc.6675-fufubuff-3gt0b01y042179cc-1330048678/images/avatars/avatar10.png',
     ],
     showAvatarSelector: false, // 控制头像选择器显示
-    selectedAvatar: '/images/avatars/avatar1.png' // 当前选中的头像
+    selectedAvatar: 'cloud://fufubuff-3gt0b01y042179cc.6675-fufubuff-3gt0b01y042179cc-1330048678/images/avatars/avatar1.png', // 当前选中的头像
   },
   onLoad: function () {
     this.loadUserInfo(); // 先加载用户信息

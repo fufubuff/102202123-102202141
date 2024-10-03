@@ -2,18 +2,18 @@ Page({
   data: {
     currentAvatar: '', // 当前头像
     defaultAvatars: [
-      '/images/avatars/avatar1.png',
-      '/images/avatars/avatar2.png',
-      '/images/avatars/avatar3.png',
-      '/images/avatars/avatar4.png',
-      '/images/avatars/avatar5.png',
-      '/images/avatars/avatar6.png',
-      '/images/avatars/avatar7.png',
-      '/images/avatars/avatar8.jpg',
-      '/images/avatars/avatar9.png',
-      '/images/avatars/avatar10.png',
-      '/images/avatars/avatar11.png',
-      '/images/avatars/avatar12.png',
+      'cloud://fufubuff-3gt0b01y042179cc.6675-fufubuff-3gt0b01y042179cc-1330048678/images/avatars/avatar1.png',
+      'cloud://fufubuff-3gt0b01y042179cc.6675-fufubuff-3gt0b01y042179cc-1330048678/images/avatars/avatar2.png',
+      'cloud://fufubuff-3gt0b01y042179cc.6675-fufubuff-3gt0b01y042179cc-1330048678/images/avatars/avatar3.png',
+      'cloud://fufubuff-3gt0b01y042179cc.6675-fufubuff-3gt0b01y042179cc-1330048678/images/avatars/avatar4.png',
+      'cloud://fufubuff-3gt0b01y042179cc.6675-fufubuff-3gt0b01y042179cc-1330048678/images/avatars/avatar5.png',
+      'cloud://fufubuff-3gt0b01y042179cc.6675-fufubuff-3gt0b01y042179cc-1330048678/images/avatars/avatar6.png',
+      'cloud://fufubuff-3gt0b01y042179cc.6675-fufubuff-3gt0b01y042179cc-1330048678/images/avatars/avatar7.png',
+      'cloud://fufubuff-3gt0b01y042179cc.6675-fufubuff-3gt0b01y042179cc-1330048678/images/avatars/avatar8.jpg',
+      'cloud://fufubuff-3gt0b01y042179cc.6675-fufubuff-3gt0b01y042179cc-1330048678/images/avatars/avatar9.png',
+      'cloud://fufubuff-3gt0b01y042179cc.6675-fufubuff-3gt0b01y042179cc-1330048678/images/avatars/avatar10.png',
+      'cloud://fufubuff-3gt0b01y042179cc.6675-fufubuff-3gt0b01y042179cc-1330048678/images/avatars/avatar11.png',
+      'cloud://fufubuff-3gt0b01y042179cc.6675-fufubuff-3gt0b01y042179cc-1330048678/images/avatars/avatar12.png',
     ],
     selectedAvatar: '' // 用户选择的新头像
   },
@@ -21,8 +21,8 @@ Page({
   onLoad: function (options) {
     // 获取当前头像并设置
     this.setData({
-      currentAvatar: options.currentAvatar || '/images/default-avatar.jpg', // 传递过来的当前头像
-      selectedAvatar: options.currentAvatar || '/images/default-avatar.jpg' // 默认选中当前头像
+      currentAvatar: options.currentAvatar || 'cloud://fufubuff-3gt0b01y042179cc.6675-fufubuff-3gt0b01y042179cc-1330048678/images/default-avatar.jpg', // 传递过来的当前头像
+      selectedAvatar: options.currentAvatar || 'cloud://fufubuff-3gt0b01y042179cc.6675-fufubuff-3gt0b01y042179cc-1330048678/images/default-avatar.jpg' // 默认选中当前头像
     });
   },
 

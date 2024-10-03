@@ -32,7 +32,7 @@
     <view class="tab-item" bindtap="switchTab" data-index="0">
       <image 
         class="tab-icon" 
-        src="{{tabIndex === 0 ? '/images/review-active.png' : '/images/review-inactive.png'}}" 
+        src="{{tabIndex === 0 ? 'cloud://fufubuff-3gt0b01y042179cc.6675-fufubuff-3gt0b01y042179cc-1330048678/images/review-active.png' : 'cloud://fufubuff-3gt0b01y042179cc.6675-fufubuff-3gt0b01y042179cc-1330048678/images/review-inactive.png'}}" 
         mode="aspectFit">
       </image>
     </view>
@@ -40,7 +40,7 @@
     <view class="tab-item" bindtap="switchTab" data-index="1">
       <image 
         class="tab-icon" 
-        src="{{tabIndex === 1 ? '/images/recruitment-active.png' : '/images/recruitment-inactive.png'}}" 
+        src="{{tabIndex === 1 ? 'cloud://fufubuff-3gt0b01y042179cc.6675-fufubuff-3gt0b01y042179cc-1330048678/images/recruitment-active.png' : 'cloud://fufubuff-3gt0b01y042179cc.6675-fufubuff-3gt0b01y042179cc-1330048678/images/recruitment-inactive.png'}}" 
         mode="aspectFit">
       </image>
     </view>
@@ -87,7 +87,6 @@
   </scroll-view>
 
   <view class="floating-button" bindtap="openChat">
-    <image class="floating-icon" src="/images/message-icon.jpg" mode="aspectFit"></image>
   </view>
 </view>
 

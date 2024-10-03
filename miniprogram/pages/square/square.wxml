@@ -1,5 +1,5 @@
 <view class="container">
-  <image class="background-image" src="/images/background.png" mode="aspectFill"></image>
+  <image class="background-image" src="cloud://fufubuff-3gt0b01y042179cc.6675-fufubuff-3gt0b01y042179cc-1330048678/images/background.png" mode="aspectFill"></image>
   <!-- Tab Navigation -->
   <view class="tab-bar">
     <!-- Tab for Resume Posting -->
@@ -20,7 +20,7 @@
       <view class="resume-item">
         <view class="resume-info">
           <!-- 图标替换“姓名”文本 -->
-          <image class="field-icon" src="/images/avatar.png"></image>
+          <image class="field-icon" src="cloud://fufubuff-3gt0b01y042179cc.6675-fufubuff-3gt0b01y042179cc-1330048678/images/avatar.png"></image>
           <!-- 姓名内容 -->
           <text class="resume-text">{{item.name}}</text>
         </view>
