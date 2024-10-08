@@ -1,0 +1,267 @@
+.container {  
+  padding: 20px;  
+  background-color: #f8f8f8;  
+  display: flex;  
+  flex-direction: column;  
+  align-items: flex-start; /* 确保内容整体向左对齐 */  
+}  
+  
+.user-info {  
+  margin-right: 0; /* 移除不必要的右外边距 */  
+  margin-bottom: 5px;  
+  display: flex;  
+  align-items: center; /* 图标和文字垂直居中对齐 */  
+}  
+  
+.user-icon {  
+  position: absolute;  
+  left: 30px; /* 图标固定在容器左侧 */  
+  width: 25px;  
+  height: 25px;
+  border-radius: 50%;  
+  /* 保留或添加其他图标样式，如图标的颜色、形状等 */  
+} 
+.phone-icon {  
+  position: absolute;  
+  left: 30px; /* 图标固定在容器左侧 */  
+  width: 25px;  
+  height: 25px;  
+  /* 保留或添加其他图标样式，如图标的颜色、形状等 */  
+}  
+  
+.user-icon {  
+  top: 20px; /* 用户图标位置 */  
+}  
+  
+.phone-icon {  
+  top: 62px; /* 电话图标位置 */  
+}  
+  
+.user-info text {  
+  color: #6ea0d6;  
+  font-size: 14px;  
+  margin-left: 45px; /* 根据图标大小调整，确保文字不覆盖图标 */  
+}  
+  
+.contact-input {  
+  margin-right: 0; /* 移除不必要的右外边距 */  
+  margin-bottom: 5px;  
+  display: flex;  
+  align-items: center; /* 图标和文字垂直居中对齐 */  
+}  
+  
+.contact-input input {  
+  width: 150px;  
+  height: 40px;  
+  padding: 8px;  
+  padding-bottom: 0;  
+  border: none;  
+  border-radius: 0;  
+  font-size: 12px;  
+  color: #6ea0d6;  
+  margin-left: 40px; /* 根据图标大小调整，确保输入框不覆盖图标 */  
+}  
+  
+.people-needed-input {  
+  position: absolute;  
+  right: 20px;  
+  top: 40px; /* 根据需要调整位置 */  
+  display: flex;  
+  align-items: center; /* 文本和输入框垂直居中对齐 */  
+}  
+  
+.red-text {  
+  color: #ff0000;  
+  white-space: nowrap;  
+  font-size: 14px;  
+  margin-right: 2px;  
+}  
+  
+.people-needed-input input {  
+  width: 50px;  
+  height: 20px;  
+  padding: 8px;  
+  padding-bottom: 0px;  
+  border: none;   
+  border-radius: 0;  
+  font-size: 14px;  
+  color: #ff0000;  
+}
+
+
+/* 项目资料部分的新容器样式 */  
+.project-container {  
+  position: relative; /* 确保父容器有定位上下文 */ 
+  margin-top: 0px; /* 增加顶部间距以明确分隔上半部分和项目资料部分 */  
+}  
+
+.white-box {  
+  position: absolute;  
+  top: 100px;  
+  left: 50%;  
+  transform: translate(-50%, -50%); /* 偏移自身宽高的一半，实现居中 */  
+  background-color: #ffffff;  
+  width: 320px;  
+  height: 180px;  
+  padding: 20px;  
+  box-sizing: border-box;  
+  border-radius: 5px;  
+}  
+  
+.shadow {  
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1); /* 添加阴影效果 */  
+}  
+  
+.project-info {  
+  width: 200px;
+  margin-bottom: 10px;  
+  font-size: 14px;    
+  font-weight: bold;  
+}
+.project-content {    
+  font-size: 12px;  
+  color: rgba(184, 181, 181, 0.795);
+  /* 可添加以下属性以确保文本不会溢出 */  
+  word-wrap: break-word; /* 确保长单词也能被换行 */  
+}  
+  
+.edit-button {  
+  position: absolute;  
+  top: 8px; /* 与白框的上边距保持一致 */  
+  right: 20px; /* 与白框的右边距保持一致 */  
+}  
+  
+button {  
+  padding: 5px 10px;  
+  border-radius: 5px;  
+  color: #6ea0d6; /* 按钮文字颜色 */  
+  border: none; /* 去除所有边框 */     
+  border-radius: 0; /* 去除边框圆角 */  
+  border: none;  
+  font-size: 12px; /* 按钮文字的字体大小 */  
+  cursor: pointer; /* 添加鼠标指针样式 */  
+}
+
+
+/* 人员需求部分的新容器样式 */  
+.person-container {  
+  position: relative; /* 确保父容器有定位上下文 */ 
+  margin-top: 200px; /* 增加顶部间距以明确分隔上半部分和项目资料部分 */  
+}  
+
+.white-box1 {  
+  position: absolute;  
+  top: 100px;  
+  left: 50%;  
+  transform: translate(-50%, -50%); /* 偏移自身宽高的一半，实现居中 */  
+  background-color: #ffffff;  
+  width: 320px;  
+  height: 180px;  
+  padding: 20px;  
+  box-sizing: border-box;  
+  border-radius: 5px;  
+}  
+  
+.shadow1 {  
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1); /* 添加阴影效果 */  
+}  
+  
+.person-info {  
+  margin-bottom: 10px;  
+  font-size: 14px;    
+  font-weight: bold;  
+}
+.person-content {    
+  font-size: 12px;  
+  color: rgba(184, 181, 181, 0.795);
+  /* 可添加以下属性以确保文本不会溢出 */  
+  word-wrap: break-word; /* 确保长单词也能被换行 */  
+}  
+  
+.person-button {  
+  position: absolute;  
+  top: 8px; /* 与白框的上边距保持一致 */  
+  right: 20px; /* 与白框的右边距保持一致 */  
+}  
+  
+button {  
+  padding: 5px 10px;  
+  border-radius: 5px;  
+  color: #6ea0d6; /* 按钮文字颜色 */  
+  border: none; /* 去除所有边框 */     
+  border-radius: 0; /* 去除边框圆角 */  
+  border: none;  
+  font-size: 12px; /* 按钮文字的字体大小 */  
+  cursor: pointer; /* 添加鼠标指针样式 */  
+}
+
+/* 关键词容器样式 */  
+.keywords-container {  
+  position: relative; /* 确保父容器有定位上下文 */  
+  margin-top: 160px; /* 增加顶部间距以明确分隔上半部分和项目资料部分 */  
+}  
+  
+.keyword-box {  
+  display: inline-block;  
+  width: 25%; /* 根据需要设置宽度 */ 
+  margin: 0 10px; /* 使用边距来适应不同屏幕尺寸 */  
+  background-color: #ccc; /* 灰色背景 */  
+  padding: 10px; /* 内边距，根据需要调整 */  
+  box-sizing: border-box; /* 如果设置了border，确保宽度包含它 */  
+  text-align: center; /* 文本居中 */  
+  border-radius: 5px; /* 可选，圆角边框 */  
+}  
+  
+.keyword-box input {  
+  width: 100%; /* 让input占满整个关键词框 */  
+  font-size: 12px; /* 根据需要设置字体大小 */  
+  color: #333; /* 文本颜色，根据需要调整 */  
+  text-align: center; /* 文本居中 */  
+  border: none; /* 去除input默认的边框 */  
+  background-color: transparent; /* 让input的背景色与关键词框一致 */  
+}  
+  
+.keyword-info {  
+  margin-bottom: 10px;  
+  font-size: 14px;  
+  font-weight: bold;  
+}  
+  
+.white-box2 {  
+  position: absolute;  
+  top: 100px;  
+  left: 50%;  
+  transform: translate(-50%, -50%); /* 偏移自身宽高的一半，实现居中 */  
+  background-color: #ffffff;  
+  width: 320px;  
+  height: 100px; /* 根据需要调整高度 */  
+  padding: 20px;  
+  box-sizing: border-box;  
+  border-radius: 5px;  
+}  
+  
+.shadow2 {  
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1); /* 添加阴影效果 */  
+}
+
+
+.bottom-actions {  
+  position: fixed;  
+  bottom: 0;  
+  left: 0;  
+  width: 100%;  
+  display: flex;  
+  justify-content: center;  
+  background-color: #fff; /* 可选，用于在某些背景下提高可读性 */  
+  padding: 10px 0; /* 可选，添加一些内边距以美化外观 */  
+}  
+  
+.submit-button {  
+  width: 350px;  
+  padding: 10px 20px;  
+  background-color: rgba(0, 123, 255, 0.8);  
+  color: #fff;  
+  border: none;  
+  border-radius: 4px;  
+  font-size: 16px;  
+}

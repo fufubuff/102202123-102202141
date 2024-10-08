@@ -1,38 +1,36 @@
-/* pages/square/square.wxss */
-.container {
-  display: flex;
-  flex-direction: column;
-  height: 100%;
-}
-
-.tabs {
-  display: flex;
-  justify-content: space-around;
-}
-
-.tab {
-  background-color: white;
-  color: black;
-  padding: 10px;
-  border: none;
-}
-
-.tab.active {
-  color: blue;
-}
-
-.list {
-  flex: 1;
-  overflow-y: auto;
-}
-
-.item {
-  padding: 10px;
-  border-bottom: 1px solid #ccc;
-}
-
-.footer {
-  display: flex;
-  justify-content: space-around;
-  padding: 10px 0;
+.container {  
+  padding: 20px;  
+  display: flex;  
+  flex-direction: column;  
+  align-items: center;  
+  background-color: #ffffff;  
+  height: 100vh; /* 使容器高度占满整个视口高度 */  
+}  
+  
+.upper-content {  
+  flex: 1; /* 使上半部分占据剩余空间的大部分 */  
+  display: flex;  
+  flex-direction: column;  
+  align-items: center;  
+  justify-content: center;  
+  /* 这里可以根据需要添加更多样式 */  
+}  
+  
+.button-container {  
+  width: 100%;  
+  display: flex;  
+  flex-direction: column; /* 修改为垂直排列 */ 
+  justify-content: center; /* 居中对齐 */  
+  gap:16px;/* 按钮间距 */  
+}  
+  
+.button {  
+  width: 200px;  
+  height: 50px;  
+  background-color: #4669aa;  
+  color: #ffffff;  
+  text-align: center;  
+  line-height: 50px;  
+  border-radius: 16px;  
+  font-size: 22px;  
 }

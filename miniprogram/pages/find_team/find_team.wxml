@@ -1,0 +1,69 @@
+<view class="container">  
+  <view class="user-info"> 
+    <!-- 蓝色人形图标，路径替换为微信云数据库中的图片路径 -->  
+    <image class="user-icon" src="{{currentUserAvatar}}" />  
+    <text>{{userName}}</text>  
+  </view>  
+  
+  <view class="contact-input">  
+    <!-- 电话图标 -->  
+    <image class="phone-icon" src="cloud://fufubuff-3gt0b01y042179cc.6675-fufubuff-3gt0b01y042179cc-1330048678/images/avatar.png" />  
+    <input placeholder="联系方式待编辑" bindinput="editContact" value="{{contact}}" />  
+  </view>  
+  
+  <view class="people-needed-input">  
+    <text class="red-text">人数缺口:</text>  
+    <input placeholder="待编辑" bindinput="editPeopleNeeded" value="{{peopleNeeded}}" />  
+  </view>
+  <view class="bottom-actions">  
+  <button class="submit-button" bindtap="submitDetails">提交</button>  
+</view>  
+</view>  
+  
+<!-- 新的容器，用于包含项目资料部分 -->  
+<view class="project-container">  
+  <view class="white-box shadow">  
+    <view class="project-info">       
+    <input placeholder="项目名称待编辑" bindinput="editProjectName" value="{{projectNamePlaceholder}}" />    
+</view> 
+    <view class="project-content">  
+      <text>{{displayText}}</text>  
+    </view>  
+    <view class="edit-button">  
+      <button bindtap="navigateToEditPage">编辑</button>  
+    </view>  
+  </view>  
+</view>  
+  
+<!-- 新的容器，用于包含人员需求部分 -->  
+<view class="person-container">  
+  <view class="white-box1 shadow1">  
+    <view class="person-info">  
+      <text>人员需求</text>  
+    </view>  
+    <view class="person-content">  
+      <text>{{displayPersonText}}</text>  
+    </view>  
+    <view class="person-button">  
+      <button bindtap="navigateToEditPerson">编辑</button>  
+    </view>  
+  </view>  
+</view> 
+
+<!-- 新的容器，用于包含关键词部分 -->  
+<view class="keywords-container">  
+  <view class="white-box2 shadow2">  
+    <view class="keyword-info">  
+      <text>关键词输入</text>  
+    </view>  
+    <view class="keyword-box">  
+      <input type="text" placeholder="专业" bindinput="onKeywordInput" data-index="0" value="{{keyword1}}" />  
+    </view>  
+    <view class="keyword-box">  
+      <input type="text" placeholder="学历层次" bindinput="onKeywordInput" data-index="1" value="{{keyword2}}" />  
+    </view>  
+    <view class="keyword-box">  
+      <input type="text" placeholder="合作方向" bindinput="onKeywordInput" data-index="2" value="{{keyword3}}" />  
+    </view>  
+  </view>  
+</view>

@@ -1,0 +1,71 @@
+.container {  
+  padding: 10px;  
+  display: flex;  
+  flex-direction: column; /* 容器内元素垂直排列 */  
+}  
+  
+.section {  
+  display: flex;  
+  align-items: center; /* 子元素在交叉轴（水平方向）上居中对齐，这里可以保留用于垂直居中label和输入框 */  
+  margin-bottom: 10px;
+  justify-content: space-between; /* 添加这行以确保元素在水平方向上均匀分布，但实际上我们更需要的是输入框填充剩余空间 */  
+  /* 或者使用 flex: 1; 在输入框上来使其填充剩余空间，此时可以移除 justify-content */   
+}  
+  
+label {  
+  display: inline-block; /* 标签为行内块元素 */  
+  min-width: 150px; /* 设置标签的最小宽度 */  
+  margin-right: 60px; /* 标签与输入框之间的间距 */  
+  text-align: left; /* 标签文本左对齐（默认就是左对齐，这行代码其实可以省略） */ 
+  font-size: 14px;
+  font-weight: bold;
+
+}  
+  
+input,  
+textarea {  
+  flex: 1; /* 输入框填充剩余空间 */ 
+  height: 40px; /* 统一输入框高度 */  
+  padding: 8px;  
+  padding-bottom: 0; /* 如果不需要底部填充，可以保留这行 */  
+  border: none;  
+  border-radius: 0;  
+  font-size: 12px;  
+  color: #6ea0d6;  
+  text-align: right; /* 添加这行使输入文本右对齐 */  
+}  
+  
+/* 对于textarea，可能需要额外的样式来适应布局，比如设置固定高度 */  
+textarea {  
+  resize: vertical; /* 允许垂直调整大小，但不允许水平调整 */  
+  height: 80px; /* 设置一个固定高度 */  
+} 
+.avatar {  
+  width: 25px;  
+  height: 25px;  
+  border-radius: 50%;
+  margin-left: 114px;
+  margin-right: 10px;
+  margin-top: 10px;   
+}
+
+.bottom-actions {  
+  position: fixed;  
+  bottom: 0;  
+  left: 0;  
+  width: 100%;  
+  display: flex;  
+  justify-content: center;  
+  background-color: #fff; /* 可选，用于在某些背景下提高可读性 */  
+  padding: 10px 0; /* 可选，添加一些内边距以美化外观 */  
+}  
+  
+.submit-button {  
+  width: 350px;  
+  padding: 10px 20px;  
+  background-color: rgba(0, 123, 255, 0.8);  
+  color: #fff;  
+  border: none;  
+  border-radius: 4px;  
+  font-size: 16px;  
+}

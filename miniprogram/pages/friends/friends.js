@@ -192,7 +192,7 @@ Page({
     const list = this.data[type];
 
     if (list[index]) {
-      list[index].avatarUrl = 'cloud://fufubuff-3gt0b01y042179cc.6675-fufubuff-3gt0b01y042179cc-1330048678/images/default-avatar.jpg'; // 确保您有一张默认头像图片
+      list[index].avatarUrl = '/images/default_avatar.png'; // 确保您有一张默认头像图片
       this.setData({
         [type]: list
       });

@@ -1,0 +1,56 @@
+<view class="container">
+  <!-- 姓名 -->
+  <view class="section">
+    <label>姓名</label>
+    <input type="text" value="{{name}}" placeholder="请输入您的姓名" data-field="name" bindinput="onInputChange" />
+  </view>
+
+  <!-- 头像 -->
+  <view class="section">
+    <label>头像</label>
+    <image class="avatar" src="{{avatarUrl}}"
+ mode="aspectFill" bindtap="chooseAvatar"></image>
+  </view>
+
+  <!-- 学院 -->
+  <view class="section">
+    <label>学院</label>
+    <input type="text" value="{{college}}" bindinput="onInputChange" data-field="college" placeholder="请输入您的学院名称" />
+  </view>
+
+  <!-- 专业 -->
+  <view class="section">
+    <label>专业</label>
+    <input type="text" value="{{major}}" bindinput="onInputChange" data-field="major" placeholder="请输入您的专业" />
+  </view>
+
+  <!-- 学历层次 -->
+  <view class="section">
+    <label>学历层次：</label>
+    <input type="text" value="{{degree}}" bindinput="onInputChange" data-field="degree" placeholder="请输入您的学历层次" />
+  </view>
+
+  <!-- 合作方向 -->
+  <view class="section">
+    <label>合作方向</label>
+    <input type="text" value="{{researchAreas}}" bindinput="onInputChange" data-field="researchAreas" placeholder="请输入您的合作方向" />
+  </view>
+
+  <!-- 个性签名 -->
+  <view class="section">
+    <label>个性签名</label>
+    <input type="text" value="{{signature}}" bindinput="onInputChange" data-field="signature" placeholder="请输入您的个性签名" />
+  </view>
+
+  <!-- 密码 -->
+  <view class="section">
+    <label>密码</label>
+    <input type="text" value="{{password}}" bindinput="onInputChange" data-field="password" placeholder="请输入您的新密码" />
+  </view>
+</view>
+
+  <!-- 提交按钮 -->
+  <view class="bottom-actions">    
+  <button class="submit-button" bindtap="submitEdit">保存修改</button>    
+</view>
+

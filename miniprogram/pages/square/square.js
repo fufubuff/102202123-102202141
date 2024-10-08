@@ -5,8 +5,14 @@ Page({
     recruitmentPosts: [], // 招募数据
   },
 
-  onLoad: function () {
-    // 初始化数据
+  onLoad: function (options) {
+    const openid = wx.getStorageSync('openid');
+    console.log('获取到的 openid:', openid);
+    if (openid) {
+      this.setData({
+        openid: openid
+      });
+    }
     this.fetchResumesData();
     this.fetchRecruitmentPostsData();
   },

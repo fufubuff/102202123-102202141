@@ -19,41 +19,32 @@
   object-fit: cover;
 }
 
-.avatar-container {
-  position: absolute;
-  bottom: -25px; /* 将头像部分向下移动，以便悬浮于背景之上 */
-  right: 10px; /* 头像靠右侧 */
-  display: flex;
-  align-items: center; /* 确保子元素在垂直方向上中心对齐 */
+.avatar-container {  
+  position: absolute;  
+  bottom: -25px; /* 将头像部分向下移动，以便悬浮于背景之上 */  
+  right: 10px; /* 头像靠右侧 */  
+  display: flex;  
+  align-items: center; /* 确保子元素在垂直方向上中心对齐 */  
+  flex-direction: row-reverse; /* 反转 flex 子元素的顺序，使名称位于头像左侧 */  
+}  
+  
+.avatar {  
+  width: 70px;  
+  height: 70px;  
+  border-radius: 10px; /* 圆角设置 */  
+  box-shadow: 0 0 8px rgba(0, 0, 0, 0.6); /* 添加阴影以增强悬浮效果 */  
+  /* margin-left: 20px; 这行现在不需要了，因为我们会用 flex 布局来控制间距 */  
+}  
+  
+.name {  
+  color: white;  
+  font-size: 16px;  
+  text-align: right; /* 文本保持右对齐 */  
+  margin-right: 8px; /* 与头像保持一定间隔 */  
+  line-height: 1.5; /* 提升行高，使文本在垂直方向上占据更多空间 */  
+  padding-top: 4px; /* 在文本上方添加内边距，进一步增加高度 */  
+  padding-bottom: 25px; /* 在文本下方添加内边距，保持高度平衡 */  
 }
-
-.avatar {
-  width: 70px;
-  height: 70px;
-  border-radius: 10px; /* 圆角设置 */
-  box-shadow: 0 0 8px rgba(0, 0, 0, 0.6); /* 添加阴影以增强悬浮效果 */
-  margin-left: 20px; /* 与用户名之间的间隔 */
-}
-
-.username {
-  position: absolute;
-  right: 88%; /* 位于头像左侧 */
-  transform: translateY(-50%); /* 垂直居中对齐 */
-  top: 50%; /* 与头像中心对齐 */
-  color: rgb(248, 241, 241);
-  font-size: 16px;
-}
-
-.slogan {
-  position: absolute;
-  bottom: -48px; /* 位置调整至容器底部 */
-  right: 10px; /* 右对齐 */
-  color: rgb(109, 103, 103);
-  font-size: 14px;
-  text-align: right; /* 文本右对齐 */
-  width: calc(100% - 20px); /* 调整宽度以适应右对齐 */
-}
-
 /* Tab栏 */
 .tab-bar {
   display: flex;
@@ -115,6 +106,14 @@
   overflow-y: scroll;
   padding: 10px;
   background-color: #f0f0f0;
+}
+
+.no-content-text {  
+  color: gray; /* 文字颜色设置为灰色 */  
+  text-align: center; /* 文字居中 */  
+  font-size: 16px; /* 设置字体大小，你可以根据需要调整 */  
+  display: block; /* 确保text元素表现为块级元素，以便应用居中样式 */  
+  margin: 20px 0; /* 可选，添加一些外边距使布局更美观 */  
 }
 
 /* 评价与招募项样式 */

@@ -15,7 +15,7 @@ Page({
     openid:'',
   },
   onImageError: function(e) {
-    const defaultAvatar = '/images/default-avatar.jpg'; // 假定这是你的默认头像路径
+    const defaultAvatar = 'cloud://fufubuff-3gt0b01y042179cc.6675-fufubuff-3gt0b01y042179cc-1330048678/images/default-avatar.jpg'; // 假定这是你的默认头像路径
     const index = e.currentTarget.dataset.index;
     const updatedList = this.data.messageList.map((item, idx) => {
         if (idx === index) {
@@ -93,8 +93,8 @@ Page({
           console.log('用户头像地址', userInfo);
   
           // 确保 avatarUrl 是相对路径
-          if (userInfo.avatarUrl && !userInfo.avatarUrl.startsWith('http')) {
-            userInfo.avatarUrl = userInfo.avatarUrl;
+          if (userInfo.avatarUrl && !userInfo.avatarUrl.startsWith('cloud')) {
+            userInfo.avatarUrl = 'cloud://fufubuff-3gt0b01y042179cc.6675-fufubuff-3gt0b01y042179cc-1330048678/' + userInfo.avatarUrl;
           }
   
           that.setData({

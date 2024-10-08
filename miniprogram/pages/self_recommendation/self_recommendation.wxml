@@ -1,0 +1,30 @@
+<view class="container">      
+  <view class="section">      
+    <label>意向项目</label>      
+    <input type="text" placeholder="请输入您的意向项目" data-field="intentProject" bindinput="updateField" />      
+  </view>      
+  <view class="section">      
+    <label>专业</label>      
+    <input type="text" placeholder="请输入您的专业信息" data-field="major" bindinput="updateField" />      
+  </view>    
+  <view class="section">      
+    <label>擅长技能</label>      
+    <input type="text" placeholder="请输入您的擅长技能" data-field="skills" bindinput="updateField" />      
+  </view>      
+  <view class="section">      
+    <label>联系方式</label>      
+    <input type="text" placeholder="请输入您的联系方式" data-field="contactInfo" bindinput="updateField" />      
+  </view>    
+</view>    
+<view class="self-container">    
+  <view class="self-box shadow">    
+    <view class="tag">自我介绍详情</view>    
+    <view class="scrollable-input-container">    
+      <textarea class="input-field" maxlength='-1' placeholder="请输入您的详细自述..." bindinput="updateSelfIntroduction" />    
+    </view>    
+  </view>    
+</view>    
+    
+<view class="bottom-actions">      
+  <button class="submit-button" bindtap="submitDetails">提交</button>      
+</view>

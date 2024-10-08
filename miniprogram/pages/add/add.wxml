@@ -1,19 +1,14 @@
-<!-- pages/square/square.wxml -->
-<view class="container">
-  <view class="tabs">
-    <button class="tab" bindtap="switchTab" data-index="0">简历投放</button>
-    <button class="tab" bindtap="switchTab" data-index="1">招募队友</button>
-  </view>
-  <view class="list">
-    <view class="item" wx:for="{{resumes}}" wx:key="unique">
-      <text>{{item.name}}</text>
-      <text>{{item.email}}</text>
-      <text>{{item.time}}</text>
-    </view>
-  </view>
-  <view class="footer">
-    <icon type="home" bindtap="goHome"/>
-    <icon type="add" bindtap="goAdd"/>
-    <icon type="user" bindtap="goProfile"/>
-  </view>
+<view class="container">  
+  <!-- 上半部分可以放置其他内容，例如输入框或信息提示 -->  
+  <view class="upper-content">  
+    <!-- 这里可以放置其他组件，如输入框、文本等 -->  
+  </view>  
+  
+  <!-- 下半部分放置按钮 -->  
+  <view class="button-container">  
+    <button bindtap="switchToFind" class="button">
+      寻找队友 
+    </button>  
+    <button class="button" bindtap="selfRecommend">自我推荐</button>  
+  </view>  
 </view>
