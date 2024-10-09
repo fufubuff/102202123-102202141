@@ -1,0 +1,33 @@
+<view class="container">  
+  <!-- 用户头像和个性签名 -->  
+  <image class="background-image" src= 'cloud://fufubuff-3gt0b01y042179cc.6675-fufubuff-3gt0b01y042179cc-1330048678/images/myself.jpg'mode="aspectFill"></image>
+  <view class="user-info">  
+    <image class="avatar" src="{{avatarUrl}}" mode="aspectFill"></image>  
+    <text class="user-name">{{name}} | {{degree}}</text>  
+    <text class="user-welcome">{{signature}}</text>  
+  </view>  
+  
+  <!-- 招聘信息和历史评价 -->  
+  <view class="navi-section">  
+    <button bindtap="Recruitments">招聘信息</button>  
+    <button bindtap="Comments">历史评价</button>  
+  </view>  
+  
+  <!-- 学院和合作方向 -->  
+  <view class="info-section">  
+    <view class="info-item">  
+      <label>学院</label>  
+      <text class="info-content">{{college}}</text>  
+    </view>  
+    <view class="info-item">  
+      <label>合作方向</label>  
+      <text class="info-content">{{researchAreas}}</text>  
+    </view>  
+  </view>  
+  
+  <!-- 修改资料、退出登录 -->  
+  <view class="action-section">  
+    <button bindtap="goToEdit">修改资料</button>  
+    <button class="logout-btn" bindtap="logout">退出账号</button>  
+  </view>  
+</view>

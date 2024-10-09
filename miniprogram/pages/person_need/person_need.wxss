@@ -1,0 +1,30 @@
+.container {  
+  padding: 20px;  
+  background-color: #f8f8f8;  
+  height: 100vh; /* 确保页面高度为100%视窗高度 */  
+  box-sizing: border-box; /* 确保padding不影响高度 */  
+  display: flex;  
+  flex-direction: column;  
+}  
+  
+.input-area {  
+  flex: 1;  
+  width: 100%;  
+  padding: 10px;  
+  font-size: 16px;  
+  border: 1px solid #dddddd;  
+  border-radius: 5px;  
+  margin-bottom: 10px;  
+  box-sizing: border-box; /* 确保padding不影响高度 */  
+}  
+  
+button {  
+  width: 350px;
+  padding: 10px;  
+  background-color:rgba(0, 123, 255, 0.8);
+  color: #ffffff;  
+  border: none;  
+  border-radius: 5px;  
+  text-align: center;  
+  font-size: 16px;  
+}

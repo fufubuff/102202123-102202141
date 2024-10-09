@@ -1,0 +1,146 @@
+.container {  
+  opacity: 0.95; 
+  padding: 20px;      
+  background-color: #f5f5f5;      
+  position: relative; /* 添加相对定位，以便内部元素可以使用绝对定位 */  
+}      
+.background-image {
+  position: fixed; /* 固定定位，防止滚动时移动 */
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  z-index: -1; /* 置于最底层 */
+}
+
+
+
+      
+.user-info {  
+  opacity: 0.9;
+  width: 290px;
+  height: 80px;
+  display: flex;      
+  flex-direction: column;      
+  align-items: center;      
+  margin-top: 90px;
+  margin-bottom: -20px;      
+  background-color: white; /* 添加白色背景 */    
+  padding: 15px; /* 添加内边距 */    
+  border-radius: 8px; /* 添加圆角 */    
+  box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.1); /* 可选：添加阴影以保持与下方元素一致 */    
+  position: relative; /* 添加相对定位，以便调整头像位置 */  
+}      
+  
+.avatar {      
+  width: 100px;      
+  height: 100px;      
+  border-radius: 50%;      
+  margin-bottom: 10px;  
+  position: absolute; /* 使用绝对定位 */  
+  top: -50px; /* 向上移动50px，使头像部分移出.user-info板块 */  
+  left: 50%; /* 水平居中 */  
+  transform: translateX(-50%); /* 修正水平居中的位置偏移 */  
+} 
+    
+.user-name {    
+  font-size: 15px;    
+  font-weight: bold;
+  margin-top: 38px;    
+}    
+    
+.user-welcome {    
+  font-size: 13px;    
+  color: #666;    
+  margin-top: 5px;    
+}    
+    
+
+  
+.navi-section {  
+  margin-top: 30px;  
+  display: flex;  
+  flex-direction: column;  
+  align-items: center;  
+}  
+.navi-section button {  
+  width: 320px; /* 或者您需要的宽度 */  
+  height: 40px; /* 或者您需要的高度 */  
+  background-color: white;  
+  box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.1); /* 添加阴影 */  
+  border-radius: 8px; /* 圆角 */  
+  font-size: 13px; /* 字体大小 */ 
+  font-weight: bold; 
+  text-align: left;
+  color: #333; /* 字体颜色 */  
+  margin-top: 15px; /* 按钮间距 */  
+}  
+
+  
+.info-section {    
+  margin-top: 20px;     
+  background-color: white;    
+  border-radius: 8px;  
+  width: 290px; /* 或者您需要的宽度 */    
+  height: auto; /* 高度自适应内容 */    
+  box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.1); /* 添加阴影 */   
+  padding: 15px; /* 添加内边距以确保内容与边框有适当间距 */  
+}    
+    
+.info-item {    
+  display: flex;    
+  margin-bottom: 10px;    
+  flex-direction: row; /* 改为水平排列 */    
+  align-items: center; /* 垂直居中对齐 */  
+  /* margin-right: 120px; 这行可以移除，因为它可能导致布局问题 */  
+}   
+  
+label {    
+  display: inline-block; /* 标签为行内块元素 */    
+  min-width: 80px; /* 调整标签的最小宽度以适应内容 */    
+  margin-right: 10px; /* 标签与输入框之间的间距 */    
+  font-size: 14px;  
+  font-weight: bold;  
+  text-align: left; /* 这通常是默认的，因此可以省略 */  
+}    
+    
+.info-content {    
+  flex: 1; /* 输入框填充剩余空间 */   
+  height: auto; /* 高度自适应内容 */    
+  padding: 0; /* 移除内边距，因为文本已经在label旁边 */    
+  border: none;    
+  font-size: 14px; /* 调整字体大小以保持一致性 */    
+  color: #666;     
+  /* text-align: right; 这行应被移除，因为我们需要文本与label对齐 */  
+}
+
+  
+.action-section {  
+  margin-top: 30px;  
+  display: flex;  
+  flex-direction: column;  
+  align-items: center;  
+}  
+  
+.action-section button {  
+  width: 320px; /* 或者您需要的宽度 */  
+  height: 40px; /* 或者您需要的高度 */  
+  background-color: white;  
+  box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.1); /* 添加阴影 */  
+  border-radius: 8px; /* 圆角 */  
+  font-size: 13px; /* 字体大小 */ 
+  font-weight: bold; 
+  text-align: left;
+  color: #333; /* 字体颜色 */  
+  margin-top: 15px; /* 按钮间距 */  
+}  
+  
+.logout-btn {  
+  color: red; /* 退出按钮字体颜色 */  
+  /* margin-top: 10px; 这行可以移除，因为已经在上面统一设置了 */  
+}  
+  
+/* 如果您希望第一个按钮没有上边距，可以给第一个按钮一个单独的类，或者这样处理： */  
+.action-section button:first-child {  
+  margin-top: 0;  
+}
