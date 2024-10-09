@@ -50,6 +50,7 @@ page, .container {
 
 /* 页面内容区域的样式调整，确保与固定标签栏不冲突 */
 .resumes, .recruitment-posts {
+  opacity: 0.9; 
   padding-top: 60px; /* 根据标签栏高度进行调整 */
   padding-bottom: 20px; /* 添加底部内边距 */
   padding-left: 20px;
@@ -80,6 +81,9 @@ page, .container {
 .resume-name, .recruitment-title {
   font-size: 18px;
   font-weight: bold;
+  word-break: break-word;
+  overflow-wrap: break-word;
+  white-space: normal;
 }
 
 .resume-info, .recruitment-info {
@@ -87,13 +91,24 @@ page, .container {
   color: #666;
   margin-top: 5px;
   font-size: 16px;
+  word-break: break-word;
+  overflow-wrap: break-word;
+  white-space: normal;
 }
 .field-icon {
-  width: 20px; /* 根据需要调整图标的宽度 */
-  height: 20px; /* 根据需要调整图标的高度 */
+  width: 30px; /* 根据需要调整图标的宽度 */
+  height: 30px; /* 根据需要调整图标的高度 */
   margin-right: 5px; /* 图标和文字之间的间距 */
+  border-radius: 50%; /* 设置为圆角，使图标呈现圆形 */
+  transition: box-shadow 0.3s ease; /* 添加过渡效果 */
+}
+
+.field-icon:hover {
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.3); /* 在悬浮时增加阴影效果 */
 }
 .resume-text {
+  position: relative;
+  top: -8px; /* 向上移动，数值可根据需要调整 */
   font-size: 16px;  /*名字图标的大小调节*/
   color: #333;
 }
@@ -144,4 +159,24 @@ page, .container {
 }
 .time-info {
   font-size: 14px; /* 特定于邮箱信息的字体大小 */
+}
+.avatar {
+  width: 40px;
+  height: 40px;
+  border-radius: 20px;
+  margin-right: 10px;
+  cursor: pointer;
+}
+
+.nickname {
+  font-size: 16px;
+  color: #007bff;
+  cursor: pointer;
+  display: inline-block;
+  margin-bottom: 10px;
+}
+
+
+.full-page-scroll {
+  height: 100vh; /* 视口的100%高度 */
 }

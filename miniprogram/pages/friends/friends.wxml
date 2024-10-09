@@ -1,7 +1,7 @@
-<!-- pages/friends/friends.wxml -->
 
 <view class="friends-container">
   <!-- 搜索区域 -->
+  <image class="background-image" src='cloud://fufubuff-3gt0b01y042179cc.6675-fufubuff-3gt0b01y042179cc-1330048678/images/聊天背景1.jpg' mode="aspectFill"></image>
   <view class="search-bar">
     <input 
       class="search-input" 
@@ -26,8 +26,12 @@
     <block wx:if="{{isSearching}}">
       <block wx:for="{{searchResults}}" wx:key="openid">
         <view class="friend-item" bindtap="onSelectFriend" data-openid="{{item.openid}}">
-          <image class="avatar" src="{{item.avatarUrl}}" binderror="onImageError" data-index="{{index}}" />
+          <image class="avatar" src="{{item.avatarUrl}}" binderror="onImageError" />
           <rich-text class="nickname" nodes="{{item.highlightedNickname}}"></rich-text>
+          <!-- 未读消息红点 -->
+          <view wx:if="{{item.unreadCount > 0}}" class="unread-badge">
+            <text>{{item.unreadCount}}</text>
+          </view>
         </view>
       </block>
       <block wx:if="{{searchResults.length === 0}}">
@@ -39,8 +43,12 @@
     <block wx:else>
       <block wx:for="{{friends}}" wx:key="openid">
         <view class="friend-item" bindtap="onSelectFriend" data-openid="{{item.openid}}">
-          <image class="avatar" src="{{item.avatarUrl}}" binderror="onImageError" data-index="{{index}}" />
-          <text class="nickname">{{item.nickname}}</text>
+          <image class="avatar" src="{{item.avatarUrl}}" binderror="onImageError" />
+          <text class="nickname">{{item.name}}</text>
+          <!-- 未读消息红点 -->
+          <view wx:if="{{item.unreadCount > 0}}" class="unread-badge">
+            <text>{{item.unreadCount}}</text>
+          </view>
         </view>
       </block>
       <!-- 分页加载提示 -->

@@ -1,0 +1,24 @@
+<view class="container">
+  <!-- 评分部分 -->
+  <view class="section white-background">
+    <text class="section-title">评分：</text>
+    <view class="rating-buttons">
+      <button class="rating-button {{rating === 1 ? 'selected poor' : 'poor'}}" data-rating="1" bindtap="selectRating">差评</button>
+      <button class="rating-button {{rating === 2 ? 'selected neutral' : 'neutral'}}" data-rating="2" bindtap="selectRating">中评</button>
+      <button class="rating-button {{rating === 3 ? 'selected good' : 'good'}}" data-rating="3" bindtap="selectRating">好评</button>
+      <button class="rating-button {{rating === 4 ? 'selected excellent' : 'excellent'}}" data-rating="4" bindtap="selectRating">超好评</button>
+    </view>
+  </view>
+
+  <!-- 评价内容部分 -->
+  <view class="section white-background">
+    <text class="section-title">评价内容：</text>
+    <textarea placeholder="请输入您的评价内容（至少10字）" data-field="content" bindinput="updateField" class="evaluation-textarea"></textarea>
+    <text class="char-count">{{content.length}} / 300</text>
+  </view>
+
+  <!-- 提交按钮 -->
+  <view class="bottom-actions">
+    <button class="submit-button" bindtap="submitEvaluation">提交评价</button>
+  </view>
+</view>

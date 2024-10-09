@@ -1,6 +1,6 @@
-// pages/friends/friends.js
 const app = getApp(); 
 const db = wx.cloud.database();
+const _ = db.command;
 
 Page({
   data: {
@@ -12,78 +12,115 @@ Page({
     debounceTimer: null,  // 防抖定时器
     pageSize: 20,         // 每页加载的数量
     currentPage: 1,       // 当前页数
-    // totalCount: 0,        // 总用户数量（如果未获取到总数，可暂时注释）
-    currentOpenId: '',    // 当前用户的 openid
+    currentUserOpenId: '',// 当前用户的 user_openid
+    totalCount: 0,        // 好友总数（用于分页）
+    watcher: null,        // 消息监听器
   },
 
-  onLoad: function() {
-    this.getOpenId().then(openid => {
-      this.setData({ currentOpenId: openid });
-      console.log('当前用户的 openid:', openid);
-      this.fetchFriends(openid); // 获取所有好友
+  onLoad: function(options) {  
+    this.loadUserOpenId().then(openid => {
+      this.setData({ currentUserOpenId: openid });
+      console.log('当前用户的 user_openid:', openid);
+      this.fetchFriendsWithUnreadCount(); // 获取所有好友并附带未读消息数量
+      this.initWatcher(); // 初始化消息监听
     }).catch(err => {
-      console.error('获取 openid 失败:', err);
+      console.error('获取 user_openid 失败:', err);
       wx.showToast({
         title: '获取用户信息失败，请稍后再试',
         icon: 'none'
       });
-    });
-  },
-
-  /**
-   * 调用云函数 'login' 获取 openid
-   */
-  getOpenId: function() {
-    return new Promise((resolve, reject) => {
-      wx.cloud.callFunction({
-        name: 'login',
-        success: res => {
-          if (res.result && res.result.openid) {
-            console.log('获取到 openid:', res.result.openid);
-            resolve(res.result.openid);
-          } else {
-            console.error('未获取到 openid:', res);
-            reject('未获取到 openid');
-          }
-        },
-        fail: err => {
-          console.error('云函数 [login] 调用失败：', err);
-          reject(err);
-        }
+      // 跳转到登录页面
+      wx.reLaunch({
+        url: '/pages/dengru/newpage'
       });
     });
   },
 
+  onUnload: function() {
+    if (this.data.watcher) {
+      this.data.watcher.close();
+    }
+  },
+
   /**
-   * 获取全部好友，支持分页
+   * 从全局数据或本地存储中获取 'user_openid'
    */
-  fetchFriends: function(openid) {
+  loadUserOpenId: function() {
+    return new Promise((resolve, reject) => {
+      const openid = app.getUserOpenid(); // 使用全局方法获取 openid
+      if (openid) {
+        resolve(openid);
+      } else {
+        reject('未找到 user_openid');
+      }
+    });
+  },
+
+  /**
+   * 获取全部好友，支持分页，并获取未读消息数量
+   */
+  fetchFriendsWithUnreadCount: function() {
     const that = this;
     const { pageSize, currentPage } = this.data;
+    this.setData({ isLoading: true });
+
     db.collection('users')
       .where({
-        openid: db.command.neq(openid) // 排除当前用户
+        openid: db.command.neq(that.data.currentUserOpenId) // 排除当前用户
       })
       .skip((currentPage - 1) * pageSize)
       .limit(pageSize)
       .get({
-        success: function(res) {
-          console.log('获取到的好友列表数据：', res.data);
-          const newFriends = that.data.friends.concat(res.data);
+        success: async function(res) {
+          const friends = res.data;
+          // 获取好友总数
+          db.collection('users').where({
+            openid: db.command.neq(that.data.currentUserOpenId)
+          }).count().then(countRes => {
+            that.setData({
+              totalCount: countRes.total
+            });
+          });
+
+          // 为每个好友获取未读消息数量
+          const friendsWithUnread = await Promise.all(friends.map(async (friend) => {
+            const count = await that.getUnreadCount(friend.openid);
+            return {
+              ...friend,
+              unreadCount: count
+            };
+          }));
+          const newFriends = that.data.friends.concat(friendsWithUnread);
           that.setData({
             friends: newFriends,
             currentPage: that.data.currentPage + 1,
-            // totalCount: res.stats.total // 如果 res.stats.total 未定义，可暂时注释掉
+            isLoading: false
           });
         },
         fail: function(err) {
           console.error('获取好友列表失败：', err);
           wx.showToast({
-            title: '获取好友列表失败',
+            title: '获取好友列表失败：' + err.message,
             icon: 'none'
           });
+          that.setData({ isLoading: false });
         }
       });
+  },
+
+  /**
+   * 获取与某个好友的未读消息数量
+   * @param {String} friendOpenid - 好友的 openid
+   */
+  getUnreadCount: function(friendOpenid) {
+    return db.collection('messages').where({
+      fromUserId: friendOpenid,
+      toUserId: this.data.currentUserOpenId,
+      isRead: false
+    }).count().then(res => res.total).catch(err => {
+      console.error('获取未读消息数量失败', err);
+      return 0;
+    });
   },
 
   /**
@@ -122,6 +159,8 @@ Page({
    */
   performSearch: function() {
     const keyword = this.data.searchKeyword.trim();
+    const that = this;
+
     if (keyword === '') {
       // 如果搜索关键词为空，显示全部好友列表
       this.setData({
@@ -137,27 +176,28 @@ Page({
       isLoading: true
     });
 
-    const that = this;
-
-    // 使用正则表达式进行模糊搜索
+    // 使用正则表达式进行模糊搜索，排除当前用户
     db.collection('users')
       .where({
+        openid: db.command.neq(that.data.currentUserOpenId), // 排除当前用户
         nickname: db.RegExp({
           regexp: keyword,
           options: 'i' // 不区分大小写
         })
       })
       .get({
-        success: function(res) {
+        success: async function(res) {
           console.log('搜索结果：', res.data);
-          const results = res.data.map(user => {
+          const results = await Promise.all(res.data.map(async (user) => {
+            const count = await that.getUnreadCount(user.openid);
             const regex = new RegExp(`(${keyword})`, 'gi');
-            const highlightedNickname = user.nickname.replace(regex, '<span>$1</span>');
+            const highlightedNickname = user.nickname.replace(regex, '<span style="color: #3cc51f;">$1</span>');
             return {
               ...user,
-              highlightedNickname
+              highlightedNickname,
+              unreadCount: count
             };
-          });
+          }));
           that.setData({
             searchResults: results,
             isLoading: false
@@ -187,12 +227,11 @@ Page({
    */
   onImageError: function(e) {
     const index = e.currentTarget.dataset.index;
-    console.log(`头像加载错误，索引: ${index}`);
     const type = this.data.isSearching ? 'searchResults' : 'friends';
     const list = this.data[type];
 
     if (list[index]) {
-      list[index].avatarUrl = 'cloud://fufubuff-3gt0b01y042179cc.6675-fufubuff-3gt0b01y042179cc-1330048678/images/default-avatar.jpg'; // 确保您有一张默认头像图片
+      list[index].avatarUrl = '/images/default_avatar.png'; // 确保您有一张默认头像图片，路径相对于项目根目录
       this.setData({
         [type]: list
       });
@@ -203,10 +242,10 @@ Page({
    * 选择好友，进入聊天界面
    */
   onSelectFriend: function(e) {
-    const openid = e.currentTarget.dataset.openid;
-    console.log('选择好友，openid:', openid);
+    const friendOpenId = e.currentTarget.dataset.openid;
+    console.log('选择好友，openid:', friendOpenId);
     wx.navigateTo({
-      url: `/pages/chat/chat?chatUserId=${openid}`
+      url: `/pages/chat/chat?chatUserId=${friendOpenId}`
     });
   },
 
@@ -215,16 +254,87 @@ Page({
    */
   onScrollToLower: function() {
     console.log('滚动到底部，尝试加载更多好友');
-    const { friends, isLoading, isSearching } = this.data;
-    if (isLoading || isSearching) return; // 如果正在加载或在搜索，停止加载更多
+    const { isLoading, isSearching, friends, totalCount } = this.data;
+    if (isLoading || isSearching || friends.length >= totalCount) return; // 如果正在加载、在搜索或已加载全部好友，停止加载更多
 
     this.setData({
       isLoading: true
     }, () => {
-      this.fetchFriends(this.data.currentOpenId);
-      this.setData({
-        isLoading: false
-      });
+      this.fetchFriendsWithUnreadCount();
     });
-  }
+  },
+
+  /**
+   * 初始化消息监听，用于实时更新未读消息红点
+   */
+  initWatcher: function() {
+    const that = this;
+    const watcher = db.collection('messages')
+      .where({
+        toUserId: that.data.currentUserOpenId
+      })
+      .watch({
+        onChange: async function(snapshot) {
+          console.log('收到消息变化：', snapshot);
+          // 处理消息变化
+          snapshot.docChanges.forEach(async (change) => {
+            const fromUserId = change.doc.fromUserId;
+            if (change.type === 'add') {
+              // 新增未读消息
+              if (!change.doc.isRead) {
+                // 更新好友列表中的 unreadCount
+                const friendsIndex = that.data.friends.findIndex(friend => friend.openid === fromUserId);
+                if (friendsIndex !== -1) {
+                  const updatedFriends = [...that.data.friends];
+                  updatedFriends[friendsIndex].unreadCount = (updatedFriends[friendsIndex].unreadCount || 0) + 1;
+                  that.setData({
+                    friends: updatedFriends
+                  });
+                }
+
+                // 如果在搜索结果中也存在该好友，更新搜索结果中的 unreadCount
+                const searchIndex = that.data.searchResults.findIndex(friend => friend.openid === fromUserId);
+                if (searchIndex !== -1) {
+                  const updatedSearchResults = [...that.data.searchResults];
+                  updatedSearchResults[searchIndex].unreadCount = (updatedSearchResults[searchIndex].unreadCount || 0) + 1;
+                  that.setData({
+                    searchResults: updatedSearchResults
+                  });
+                }
+              }
+            } else if (change.type === 'update') {
+              // 消息被标记为已读，重新获取对应好友的 unreadCount
+              const newUnreadCount = await that.getUnreadCount(fromUserId);
+              const friendsIndex = that.data.friends.findIndex(friend => friend.openid === fromUserId);
+              if (friendsIndex !== -1) {
+                const updatedFriends = [...that.data.friends];
+                updatedFriends[friendsIndex].unreadCount = newUnreadCount;
+                that.setData({
+                  friends: updatedFriends
+                });
+              }
+
+              // 如果在搜索结果中也存在该好友，更新搜索结果中的 unreadCount
+              const searchIndex = that.data.searchResults.findIndex(friend => friend.openid === fromUserId);
+              if (searchIndex !== -1) {
+                const updatedSearchResults = [...that.data.searchResults];
+                updatedSearchResults[searchIndex].unreadCount = newUnreadCount;
+                that.setData({
+                  searchResults: updatedSearchResults
+                });
+              }
+            }
+          });
+        },
+        onError: function(err) {
+          console.error('监听消息失败', err);
+          wx.showToast({
+            title: '监听消息失败',
+            icon: 'none'
+          });
+        }
+      });
+    that.setData({ watcher });
+  },
+
 });

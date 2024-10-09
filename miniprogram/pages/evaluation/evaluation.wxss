@@ -1,0 +1,121 @@
+/* evaluation.wxss */
+.container {
+  display: flex;
+  flex-direction: column;
+  height: 100vh;
+  background-color: #f0f8ff;
+  padding: 20rpx;
+}
+
+.section {
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  margin: 50rpx; /* 调整外部边距 */
+  padding: 100rpx; /* 增加内部边距 */
+  background-color: #ffffff; /* 白色背景 */
+  border-radius: 20rpx; /* 增加边框圆角 */
+  box-shadow: 0 4rpx 12rpx rgba(0, 0, 0, 0.1); /* 调整阴影效果 */
+}
+
+.section-title {
+  font-size: 36rpx;
+  color: #333;
+  margin-bottom: 20rpx;
+}
+
+.rating-buttons {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-around;
+  width: 100%;
+}
+
+.rating-button {
+  border: 1px solid #ccc; /* 默认边框 */
+  background-color: #f5f5f5; /* 默认背景色 */
+  color: #333; /* 默认文本颜色 */
+  padding: 10px;
+  margin: 5px;
+  border-radius: 4px;
+  transition: background-color 0.3s, color 0.3s;
+}
+
+.rating-button.poor { background-color: #f8d7da; } /* 差评的背景色 */
+.rating-button.neutral { background-color: #fff3cd; } /* 中评的背景色 */
+.rating-button.good { background-color: #d4edda; } /* 好评的背景色 */
+.rating-button.excellent { background-color: #d1ecf1; } /* 超好评的背景色 */
+
+.rating-button.selected {
+  color: #fff; /* 选中状态的文本颜色 */
+  border-color: #007bff; /* 选中状态的边框颜色 */
+}
+
+/* 根据选中状态改变背景和文字颜色 */
+.rating-button.selected.poor { background-color: #f5c6cb; }
+.rating-button.selected.neutral { background-color: #ffeeba; }
+.rating-button.selected.good { background-color: #c3e6cb; }
+.rating-button.selected.excellent { background-color: #bee5eb; }
+
+
+.evaluation-textarea {
+  width: 90%;
+  height: 300rpx;
+  padding: 20rpx;
+  border: 2rpx solid #6ea0d6;
+  border-radius: 10rpx;
+  font-size: 24rpx;
+  color: #333;
+  background-color: #fff;
+  resize: none;
+  box-sizing: border-box;
+}
+
+.char-count {
+  text-align: right;
+  font-size: 20rpx;
+  color: #999;
+  margin-top: 10rpx;
+}
+
+.bottom-actions {
+  position: fixed;
+  bottom: 0;
+  left: 0;
+  width: 100%;
+  padding: 20rpx 0;
+  background-color: #f0f8ff;
+  box-shadow: 0 -2rpx 5rpx rgba(0, 0, 0, 0.1);
+  display: flex;
+  justify-content: center;
+}
+
+.submit-button {
+  width: 95%;
+  background-color: #5969f8;
+  color: #fff;
+  border: none;
+  padding: 20rpx 0;
+  font-size: 22rpx;
+  font-weight: bold;
+  text-align: center;
+  cursor: pointer;
+  transition: background-color 0.3s;
+}
+.rating-button.poor:active {
+  background-color: #c9302c; /* 差评点击效果更深的红色 */
+}
+
+.rating-button.neutral:active {
+  background-color: #ec971f; /* 中评点击效果更深的橙色 */
+}
+
+.rating-button.good:active {
+  background-color: #449d44; /* 好评点击效果更深的绿色 */
+}
+
+.rating-button.excellent:active {
+  background-color: #025aa5; /* 超好评点击效果更深的蓝色 */
+}

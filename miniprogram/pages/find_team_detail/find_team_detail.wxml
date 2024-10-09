@@ -1,0 +1,64 @@
+<view class="container">
+  <view class="user-info">
+    <!-- 用户头像 -->
+    <image class="user-icon" src="{{userAvatar}}" />
+    <text class="user-name">{{userName}}</text>
+  </view>
+
+  <view class="contact-display">
+    <image class="phone-icon" src="cloud://fufubuff-3gt0b01y042179cc.6675-fufubuff-3gt0b01y042179cc-1330048678/content_infomation.png" />
+    <text>{{contact}}</text>
+  </view>
+
+  <view class="people-needed-display">
+    <text class="red-text">人数缺口:</text>
+    <text>{{peopleNeeded}}</text>
+  </view>
+
+  <view class="project-container">
+    <view class="white-box shadow full-width-horizontal">
+      <view class="project-info">
+        <text>项目详情</text>
+      </view>
+      <view class="project-content">
+        <view class="textarea-placeholder fixed-size">{{projectName}}</view>
+      </view>
+    </view>
+  </view>
+ 
+
+
+
+
+
+
+
+
+  <view class="person-container">
+    <view class="white-box shadow full-width-horizontal">
+      <view class="person-info">
+        <text>人员需求</text>
+      </view>
+      <view class="person-content">
+        <view class="textarea-placeholder fixed-size">{{personNeed}}</view>
+      </view>
+    </view>
+  </view>
+
+  <view class="keywords-container">
+    <view class="white-box2 shadow2 full-width-horizontal">
+      <view class="keyword-info">
+        <text>关键词</text>
+      </view>
+      <view class="keyword-box">
+        <text>{{keyword1}}</text>
+      </view>
+      <view class="keyword-box">
+        <text>{{keyword2}}</text>
+      </view>
+      <view class="keyword-box">
+        <text>{{keyword3}}</text>
+      </view>
+    </view>
+  </view>
+</view>

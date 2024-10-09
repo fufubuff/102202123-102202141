@@ -1,31 +1,19 @@
-
 <view class="container">
+  <!-- 个人资料部分 -->
   <view class="profile-container">
-    <image class="background-img" src="{{backgroundUrl}}" mode="aspectFill"></image>
-    
-    <!-- 头像和用户名部分 -->
+    <!-- 背景图片 -->
+    <image src="{{backgroundUrl}}" class="background-img"></image>
+    <!-- 头像和姓名容器 -->
     <view class="avatar-container">
-      <!-- 点击头像触发修改头像功能 -->
-      <image class="avatar" src="{{avatarUrl}}" mode="aspectFill" bindtap="changeAvatar"></image>
-      <text class="username">{{username}}</text>
+      <!-- 用户头像 -->
+      <image src="{{avatarUrl}}" class="avatar" mode="cover" alt="用户头像" bindtap="changeAvatar"></image>  
+      <!-- 用户昵称 -->
+      <text class="name">{{name}}</text>
     </view>
-
-    <text class="slogan">{{slogan}}</text>
+    <!-- 个性签名 -->
+    <text class="signature">{{signature}}</text>
   </view>
   
-  <!-- 头像选择器，仅当点击头像时显示 -->
-  <view wx:if="{{showAvatarSelector}}" class="avatar-selection">
-    <block wx:for="{{defaultAvatars}}" wx:key="index">
-      <image 
-        class="avatar-option {{selectedAvatar === item ? 'selected' : ''}}" 
-        src="{{item}}" 
-        bindtap="selectAvatar"
-        data-url="{{item}}">
-      </image>
-    </block>
-  </view>
-
-
   <!-- Tab栏，放置在中间 -->
   <view class="tab-bar">
     <!-- 个人合作评价 Tab -->
@@ -46,47 +34,79 @@
     </view>
   </view>
 
-  <!-- 可滑动的内容部分 -->
-  <scroll-view class="content-scroll" scroll-y="true">
-    <!-- 个人合作评价内容 -->
-    <view wx:if="{{tabIndex === 0}}">
-      <view class="reviews">
-        <block wx:for="{{cooperationReviews}}" wx:key="index">
-          <view class="review-item">
-            <text>{{item.reviewer}}: {{item.content}}</text>
-            <text class="time-info">{{item.time}}</text>
-          </view>
-        </block>
+  <scroll-view class="content-scroll" scroll-y="true">  
+  <!-- 个人合作评价内容 -->  
+  <view wx:if="{{tabIndex === 0}}">  
+    <view wx:if="{{noReviews}}">  
+      <text class="no-content-text">这里什么都没有哦：（</text>  
+    </view>  
+    <view wx:else class="reviews">  
+      <block wx:for="{{cooperationReviews}}" wx:key="index">  
+        <view class="review-item">  
+          <!-- 评价者信息 -->  
+          <view class="recruiter-info">  
+            <image class="avatar" src="{{item.reviewerAvatarUrl}}" mode="aspectFill"></image>  
+            <text class="nickname">{{item.reviewerName}}</text>  
+            <text class="rating-text">{{item.ratingText}}</text>
+          </view>  
+          <text class="content">{{item.content}}</text> 
+          <!-- 评价内容 -->  
+          <text class="time-info">{{item.time}}</text>  
+        </view>
+      </block>  
+    </view>  
+  </view>
+    <!-- 组队招募内容 -->  
+    <view wx:if="{{tabIndex === 1}}">  
+      <view wx:if="{{isLoading}}">
+        <view class="loading-indicator">
+          <text>加载中...</text>
+        </view>
       </view>
-    </view>
-
-    <!-- 组队招募内容 -->
-    <view wx:if="{{tabIndex === 1}}">
-      <view class="team-recruitments">
-        <block wx:for="{{teamRecruitments}}" wx:key="index">
-          <view class="recruitment-item">
-            <!-- 发布者信息 -->
-            <view class="recruiter-info">
-              <image class="avatar" src="{{avatarUrl}}" mode="aspectFill"></image>
-              <text class="nickname">{{username}}</text>
+      <view wx:elif="{{noRecruitments}}">  
+        <text class="no-content-text">这里什么都没有哦：（</text>  
+      </view>  
+      <view wx:else class="team-recruitments">  
+        <block wx:for="{{teamRecruitments}}" wx:key="index">  
+          <view class="recruitment-item">  
+            <!-- 发布者信息 -->  
+            <view class="recruiter-info">  
+              <image class="avatar" src="{{avatarUrl}}" mode="aspectFill"></image>  
+              <text class="nickname">{{name}}</text>  
+            </view>  
+            <!-- 招募信息 -->  
+            <text class="recruitment-title">{{item.title}}</text>  
+            <view>
+              <text class="time-info">{{item.time}}</text>  
             </view>
-            <!-- 招募信息 -->
-            <text class="recruitment-title">{{item.title}}</text>
-            <text>{{item.details}}</text>
-            <view class="recruitment-tags">
-              <block wx:for="{{item.tags}}" wx:key="tag">
-                <text class="tag">{{tag}}</text>
-              </block>
-            </view>
-            <text class="time-info">{{item.time}}</text>
-            <button class="view-details-button" bindtap="viewDetails" data-id="{{item._id}}">查看详情</button>
-          </view>
-        </block>
-      </view>
-    </view>
+            <button class="view-details-button" bindtap="viewDetails" data-id="{{item._id}}">查看详情</button>  
+          </view>  
+        </block>  
+      </view>  
+    </view>  
   </scroll-view>
 
-  <view class="floating-button" bindtap="openChat">
+  <!-- 头像选择器，仅当点击头像时显示 -->
+  <view wx:if="{{showAvatarSelector}}" class="avatar-selection">
+    <block wx:for="{{defaultAvatars}}" wx:key="index">
+      <image 
+        class="avatar-option {{selectedAvatar === item ? 'selected' : ''}}" 
+        src="{{item}}" 
+        bindtap="selectAvatar"
+        data-url="{{item}}">
+      </image>
+    </block>
+  </view>
+
+  <!-- 浮动按钮 -->
+  <view class="floating-buttons-container">
+  <!-- 评价按钮 -->
+  <view class="floating-button eval-button" bindtap="openEvaluation">
+    <text class="button-label">评价</text>
+  </view>
+  <!-- 私信按钮 -->
+  <view class="floating-button chat-button" bindtap="openChat">
+    <text class="button-label">私信</text>
   </view>
 </view>
-
+</view>

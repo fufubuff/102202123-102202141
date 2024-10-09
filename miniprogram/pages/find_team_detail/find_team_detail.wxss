@@ -1,0 +1,123 @@
+.container {
+  padding: 20px;
+  background-color: #f8f8f8;
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+}
+
+.user-info {
+  margin-bottom: 15px;
+  display: flex;
+  align-items: center;
+}
+
+.user-icon {
+  width: 50px;
+  height: 50px;
+  border-radius: 50%;
+  margin-right: 10px;
+}
+
+.user-name {
+  font-size: 18px;
+  font-weight: bold;
+  color: #333;
+}
+
+.contact-display {
+  display: flex;
+  align-items: center;
+  margin-bottom: 15px;
+}
+
+.phone-icon {
+  width: 20px;
+  height: 20px;
+  margin-right: 8px;
+}
+
+.people-needed-display {
+  margin-bottom: 20px;
+}
+
+.red-text {
+  color: #ff0000;
+  font-size: 16px;
+}
+
+.project-container, .person-container, .keywords-container {
+  margin-top: 20px;
+  min-height: 1em; /* 确保至少有一行的内容，即使为空白 */
+  width: 100%; 
+  word-break: break-word;
+  overflow-wrap: break-word;
+  white-space: normal;
+}
+
+.white-box, .white-box1, .white-box2 {
+  background-color: #ffffff;
+  padding: 20px;
+  border-radius: 5px;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+  width: 100%;
+  box-sizing: border-box;
+}
+
+.full-width-horizontal {
+  width: 100%;
+  box-sizing: border-box;
+}
+
+.same-size {
+  height: 200px; /* 设置统一的高度 */
+}
+
+.project-info, .person-info, .keyword-info {
+  font-size: 16px;
+  font-weight: bold;
+  margin-bottom: 10px;
+}
+
+.project-content, .person-content {
+  font-size: 14px;
+  color: #666;
+  box-sizing: border-box;
+}
+
+.textarea-placeholder {
+  font-size: 14px;
+  color: #666;
+  background-color: #f8f8f8;
+  padding: 8px;
+  border-radius: 5px;
+  width: 100%;
+  box-sizing: border-box;
+}
+
+.fixed-size {
+  min-height: 180px;
+}
+
+.keyword-box {
+  display: inline-block;
+  margin-right: 10px;
+  padding: 8px;
+  background-color: #e0e0e0;
+  border-radius: 4px;
+  font-size: 14px;
+}
+
+button {
+  padding: 5px 10px;
+  border: none;
+  border-radius: 5px;
+  background-color: #007bff;
+  color: #fff;
+  cursor: pointer;
+  margin-top: 10px;
+}
+
+button:disabled {
+  background-color: #ccc;
+}

@@ -12,7 +12,8 @@
   display: flex;
   align-items: center;
   padding: 10px;
-  background-color: #fff;
+  background-color: rgba(255, 255, 255, 0.986);
+  border-bottom: 1px solid #eaeaea; /* 添加底部边框，增强区分 */
 }
 
 .chat-avatar {
@@ -55,23 +56,46 @@
   border-radius: 20px;
 }
 
+/* 聊天气泡 */
 .message-content {
+  position: relative; /* 使内部绝对定位元素相对于气泡定位 */
   max-width: 60%;
   padding: 10px;
-  border-radius: 5px;
+  border-radius: 10px; /* 增加圆角，使气泡更美观 */
   background-color: #fff;
   margin: 0 10px;
+  display: flex;
+  flex-direction: column;
 }
 
 .message-item-self .message-content {
-  background-color: #a0b6ff;
+  background-color: #a0b6ff; /* 发送消息的气泡颜色 */
 }
 
 .message-text {
   font-size: 16px;
   color: #000;
-  margin-left: 0px;  
-  margin-right: 0px; 
+  margin-bottom: 20px; /* 为底部元素留出空间 */
+}
+
+/* 新增的消息底部容器 */
+.message-footer {
+  display: flex;
+  justify-content: flex-end; /* 将内容对齐到右侧 */
+  align-items: center;
+}
+
+/* 已读/未读指示样式 */
+.message-read-status {
+  font-size: 10px;      /* 缩小字体 */
+  color: #999999;
+  margin-right: 5px;    /* 读取状态与时间戳之间的间距 */
+}
+
+/* 时间戳样式 */
+.message-time {
+  font-size: 10px;      /* 缩小字体 */
+  color: #999999;
 }
 
 /* 输入区域 */
@@ -80,14 +104,13 @@
   align-items: center;
   padding: 10px;
   background-color: #fff;
+  border-top: 1px solid #eaeaea;
 }
 
 .message-input {
   flex: 1;
   height: 40px;
-  padding: 0px 10px 0px 10px; /* 上右下左 */
-  /* 或者单独设置左侧内边距 */
-  /* padding-left: 10px; */
+  padding: 0px 10px; /* 上右下左 */
   border: 1px solid #ccc;
   border-radius: 20px;
 }
@@ -100,10 +123,11 @@
   color: #fff;
   border: none;
   border-radius: 20px;
-  font-size: 14px; /* 调整为您希望的字体大小 */
+  font-size: 12px; /* 调整为您希望的字体大小 */
   line-height: 40px; 
 }
-/* 调整您自己的消息项中头像和消息内容的间距 */
+
+/* 调整发送消息项中头像和消息内容的间距 */
 .message-item-self .avatar {
   margin-right: 15px; /* 头像左侧留出空间 */
   margin-left: 8px;     /* 头像右侧无间距 */
@@ -113,3 +137,45 @@
   margin-left: 20px;  /* 消息内容右侧留出空间 */
   margin-right: 0px;    /* 消息内容左侧无间距 */
 }
+
+/* 响应式设计 */
+@media (max-width: 600px) {
+  .chat-header {
+    padding: 8px;
+  }
+
+  .chat-avatar {
+    width: 35px;
+    height: 35px;
+  }
+
+  .chat-nickname {
+    font-size: 16px;
+  }
+
+  .message-content {
+    max-width: 80%;
+  }
+
+  .message-text {
+    font-size: 14px;
+    margin-bottom: 8px; /* 保持空间 */
+  }
+
+  .message-read-status,
+  .message-time {
+    font-size: 9px;
+  }
+  .background-image {
+    position: fixed; /* 固定定位，防止滚动时移动 */
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    z-index: -1; /* 置于最底层 */
+  }
+  .message-input {
+    height: 35px;
+  }
+}
+

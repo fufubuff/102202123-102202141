@@ -1,0 +1,82 @@
+.container {    
+  padding: 20px;    
+  background-color: #f8f8f8;    
+  height: 100vh; /* 确保页面高度为100%视窗高度 */    
+  box-sizing: border-box; /* 确保padding不影响高度 */    
+  display: flex;    
+  flex-direction: column;    
+}    
+    
+.image-button-container {    
+  margin-bottom: 10px;    
+}    
+    
+.image-button {    
+  display: flex;    
+  align-items: center;    
+  padding: 10px;    
+  background-color: rgba(0, 123, 255, 0.8);    
+  color: #ffffff;    
+  border: none;    
+  border-radius: 5px;    
+  font-size: 16px;    
+}    
+    
+.icon {    
+  width: 20px;    
+  height: 20px;    
+  margin-right: 5px;    
+}    
+    
+.input-area {    
+  flex: 1;    
+  width: 100%;    
+  padding: 10px;    
+  font-size: 16px;    
+  border: 1px solid #dddddd;    
+  border-radius: 5px;    
+  margin-bottom: 10px;    
+  box-sizing: border-box; /* 确保padding不影响高度 */    
+  min-height: 100px; /* 设置最小高度，避免输入框太小 */    
+}    
+    
+.image-container {    
+  margin-bottom: 10px;    
+  display: flex;    
+  flex-wrap: wrap; /* 允许图片换行显示 */    
+}    
+    
+.image-item-container {    
+  display: flex;    
+  align-items: center;    
+  margin-right: 10px;    
+  margin-bottom: 10px;    
+}    
+    
+.image-item {    
+  width: 100px;    
+  height: 100px;    
+  /* 如果需要，可以添加对象拟合样式 */    
+  object-fit: cover;    
+}    
+    
+.delete-button {    
+  margin-left: 10px; /* 在图片和删除按钮之间添加间距 */    
+  padding: 5px 10px; 
+  background-color: #ff0000;    
+  color: #ffffff;    
+  border: none;    
+  border-radius: 5px;    
+  font-size: 14px;    
+}    
+    
+.submit-button {    
+  width: 350px;    
+  padding: 10px;    
+  background-color: rgba(0, 123, 255, 0.8);    
+  color: #ffffff;    
+  border: none;    
+  border-radius: 5px;    
+  text-align: center;    
+  font-size: 16px;    
+}

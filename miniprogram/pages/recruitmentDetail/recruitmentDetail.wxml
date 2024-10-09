@@ -1,24 +1,35 @@
-<!--pages/recruitmentDetail/recruitmentDetail.json.wxml-->
 <view class="container">
-  <!-- 加载动画 -->
-  <view wx:if="{{isLoading}}" class="loading">
-    <image src="/images/loading.jpg" mode="aspectFit" class="loading-icon"></image>
+  <!-- 意向项目 -->
+  <view class="section">
+    <label>意向项目</label>
+    <text class="detail-text">{{intentProject}}</text>
   </view>
-  <!-- 招募详情 -->
-  <view wx:if="{{!isLoading}}" class="recruitment-detail">
-    <!-- 发布者信息 -->
-    <view class="recruiter-info">
-      <image class="avatar" src="{{recruitment.avatarUrl}}" mode="aspectFill"></image>
-      <text class="nickname">{{recruitment.nickname}}</text>
+
+  <!-- 专业 -->
+  <view class="section">
+    <label>专业</label>
+    <text class="detail-text">{{major}}</text>
+  </view>
+
+  <!-- 擅长技能 -->
+  <view class="section">
+    <label>擅长技能</label>
+    <text class="detail-text">{{skills}}</text>
+  </view>
+
+  <!-- 联系方式 -->
+  <view class="section">
+    <label>联系方式</label>
+    <text class="detail-text">{{contactInfo}}</text>
+  </view>
+</view>
+
+<!-- 自我介绍 -->
+<view class="self-container">
+  <view class="self-box shadow">
+    <view class="tag">自我介绍详情</view>
+    <view class="self-introduction">
+      <text>{{selfIntroduction}}</text>
     </view>
-    <!-- 招募信息 -->
-    <text class="recruitment-title">{{recruitment.title}}</text>
-    <text class="details">{{recruitment.details}}</text>
-    <view class="recruitment-tags">
-      <block wx:for="{{recruitment.tags}}" wx:key="tag">
-        <text class="tag">{{tag}}</text>
-      </block>
-    </view>
-    <text class="time-info">{{recruitment.time}}</text>
   </view>
 </view>

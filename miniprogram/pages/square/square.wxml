@@ -1,5 +1,6 @@
 <view class="container">
-  <image class="background-image" src="cloud://fufubuff-3gt0b01y042179cc.6675-fufubuff-3gt0b01y042179cc-1330048678/images/background.png" mode="aspectFill"></image>
+  <image class="background-image" src='cloud://fufubuff-3gt0b01y042179cc.6675-fufubuff-3gt0b01y042179cc-1330048678/images/主页面.jpg' mode="aspectFill"></image>
+  
   <!-- Tab Navigation -->
   <view class="tab-bar">
     <!-- Tab for Resume Posting -->
@@ -13,43 +14,38 @@
   </view>
 
   <!-- Resume Display -->
-<!-- 简历展示 -->
-<view wx:if="{{tabIndex === 0}}">
+  <scroll-view scroll-y="true" wx:if="{{tabIndex === 0}}" class="full-page-scroll">
   <view class="resumes">
     <block wx:for="{{resumes}}" wx:key="id">
-      <view class="resume-item">
+      <view class="resume-item" bindtap="goToDetailPage" data-id="{{item._id}}" data-openid="{{item.openid}}">
         <view class="resume-info">
-          <!-- 图标替换“姓名”文本 -->
-          <image class="field-icon" src="cloud://fufubuff-3gt0b01y042179cc.6675-fufubuff-3gt0b01y042179cc-1330048678/images/avatar.png"></image>
-          <!-- 姓名内容 -->
+          <image class="field-icon" src="{{item.avatarUrl}}" catchtap="goToUserProfile" data-openid="{{item.openid}}"></image>
           <text class="resume-text">{{item.name}}</text>
+          <text class="rating">{{item.rating}}</text>
         </view>
-        <!-- 其他字段 -->
-        <text class="resume-info email-info">邮箱：{{item.email}}</text>
+        <text class="resume-info email-info">联系方式：{{item.email}}</text>
         <text class="resume-info time-info">时间：{{item.time}}</text>
       </view>
     </block>
   </view>
-</view>
-
+</scroll-view>
 
   <!-- Recruitment Display -->
-  <view wx:if="{{tabIndex === 1}}">
-  <view class="recruitment-posts">
-    <block wx:for="{{recruitmentPosts}}" wx:key="id">
-      <view class="recruitment-item">
-        <text class="recruitment-title">{{item.title}}</text>
-        <!-- 将时间文本放在独立的view中并应用样式 -->
-        <view class="recruitment-time-container">
-          <text class="recruitment-time">{{item.time}}</text>
-        </view>
-        <view class="recruitment-tags">
-          <block wx:for="{{item.tags}}" wx:for-item="tag" wx:key="index">
-            <text class="tag">{{tag}}</text>
+  <scroll-view scroll-y="true" wx:if="{{tabIndex === 1}}" class="full-page-scroll">
+    <view class="recruitment-posts">
+      <block wx:for="{{recruitmentPosts}}" wx:key="id">
+        <view class="recruitment-item" bindtap="goToFindTeamDetail" data-id="{{item._id}}">
+          <text class="recruitment-title">{{item.title}}</text>
+          <view class="recruitment-time-container">
+            <text class="recruitment-time">{{item.time}}</text>
+          </view>
+          <view class="recruitment-tags">
+            <block wx:for="{{item.tags}}" wx:key="index">
+            <text class="tag">{{item}}</text>
           </block>
+          </view>
         </view>
-      </view>
-    </block>
-  </view>
-</view>
+      </block>
+    </view>
+  </scroll-view>
 </view>

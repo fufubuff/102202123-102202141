@@ -1,147 +1,73 @@
-/* 容器整体 */
 .container {
+  padding: 40px; /* 移除 padding 以使容器贴近页面边缘 */
+  margin: 0;
   display: flex;
-  flex-direction: column;
-  padding: 20px;
-  background-color: #ffffff;
-  height: 100vh;
-  overflow-y: scroll;
+  flex-direction: column; /* 使容器内元素垂直排列 */
 }
 
-/* 返回按钮样式 */
-.back-button {
-  position: fixed;
-  top: 20px;
-  left: 20px;
-  background-color: #1aad19;
-  color: white;
-  border: none;
-  border-radius: 5px;
-  padding: 5px 10px;
+.section {
+  display: flex;
+  align-items: center; /* 垂直方向居中对齐 */
+  margin-bottom: 15px; /* 每个 section 之间增加一些间距 */
+  width: 100%; /* 确保 section 占据整个页面宽度 */
+  text-align: left; /* 确保文本左对齐 */
+}
+
+label {
   font-size: 14px;
-  cursor: pointer;
-  z-index: 1002;
+  font-weight: bold;
+  min-width: 100px; /* 设置标签的最小宽度 */
+  margin-right: 10px; /* 标签与内容之间的间距 */
+  text-align: left;
 }
 
-.back-button:hover {
-  background-color: #179b16;
+.detail-text {
+  flex: 1; /* 填充剩余空间 */
+  font-size: 14px;
+  color: #6ea0d6;
+  text-align: left; /* 确保内容部分文本左对齐 */
 }
 
-/* 加载动画 */
-.loading {
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  height: 100vh;
-}
-
-.loading-icon {
-  width: 50px;
-  height: 50px;
-}
-
-/* 招募详情 */
-.recruitment-detail {
+/* 自我介绍部分 */
+.self-container {
+  position: relative;
+  margin-top: 20px;
   padding: 20px;
-  background-color: #f9f9f9;
-  border-radius: 10px;
-  box-shadow: 0 2px 5px rgba(0,0,0,0.1);
-  margin-top: 60px; /* 确保内容不被固定的返回按钮遮挡 */
+  box-sizing: border-box;
 }
 
-/* 发布者信息 */
-.recruiter-info {
-  display: flex;
-  align-items: center;
-  margin-bottom: 15px;
+.self-box {
+  background-color: #ffffff;
+  width: 100%;
+  max-width: 350px; /* 最大宽度 */
+  height: auto;
+  min-height: 200px; /* 设置一个最小高度 */
+  padding: 20px;
+  box-sizing: border-box;
+  border-radius: 5px;
+  margin: 0 auto;
 }
 
-.recruiter-info .avatar {
-  width: 50px;
-  height: 50px;
-  border-radius: 50%; /* 圆形头像 */
-  margin-right: 10px;
-}
-
-.nickname {
-  font-size: 18px;
-  font-weight: bold;
-  color: #333;
-}
-
-/* 招募信息 */
-.recruitment-title {
-  font-size: 22px;
-  font-weight: bold;
-  margin-bottom: 10px;
-}
-
-.details {
-  font-size: 16px;
-  color: #555;
-  margin-bottom: 15px;
-}
-
-.recruitment-tags {
-  display: flex;
-  flex-wrap: wrap;
-  margin-bottom: 10px;
+.shadow {
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
 }
 
 .tag {
-  display: inline-block;
-  background-color: #eee;
-  color: #333;
-  padding: 4px 8px;
-  margin-right: 5px;
-  margin-bottom: 5px;
-  border-radius: 4px;
-}
-
-.time-info {
-  color: #888;
+  margin-bottom: 10px;
   font-size: 14px;
+  font-weight: bold;
 }
 
-/* 媒体查询（可选） */
-@media screen and (max-width: 768px) {
-  .recruiter-info .avatar {
-    width: 40px;
-    height: 40px;
-  }
-
-  .nickname {
-    font-size: 16px;
-  }
-
-  .recruitment-title {
-    font-size: 20px;
-  }
-
-  .details {
-    font-size: 14px;
-  }
-
-  .tag {
-    padding: 3px 6px;
-    font-size: 12px;
-  }
-
-  .time-info {
-    font-size: 12px;
-  }
-
-  /* 返回按钮调整 */
-  .back-button {
-    top: 15px;
-    left: 15px;
-    padding: 4px 8px;
-    font-size: 12px;
-  }
-
-  /* 加载动画调整 */
-  .loading-icon {
-    width: 40px;
-    height: 40px;
-  }
+.self-introduction {
+  width: 100%;
+  height: auto;
+  min-height: 80px; /* 设置最小高度 */
+  padding: 10px;
+  box-sizing: border-box;
+  font-family: inherit;
+  font-size: 14px;
+  line-height: 1.5;
+  display: block;
+  color: #6ea0d6; /* 文本颜色 */
+  text-align: left;
 }
