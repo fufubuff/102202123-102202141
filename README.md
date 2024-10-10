@@ -52,13 +52,12 @@
 
 #### 2.1 配置项目 `app.js` 文件
 在项目根目录中找到 `app.js` 文件，配置云开发环境 ID：
-
-```javascript
+'''javascript
 wx.cloud.init({
   env: 'your-cloud-environment-id', // 替换为您在云开发控制台创建的环境 ID
   traceUser: true,
 });
-
+```javascript
 ## 主要页面与结构
 
 ### 1. 隐私政策页面 - `pages/privacy/privacy`
