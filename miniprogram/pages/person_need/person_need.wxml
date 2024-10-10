@@ -1,4 +1,0 @@
-<view class="container">  
-  <textarea bindinput="handleInput" maxlength="-1" value="{{inputContent}}" placeholder="请输入您的人员需求描述..." class="input-area"/>   
-  <button bindtap="handleSubmit">确认</button>  
-</view>
