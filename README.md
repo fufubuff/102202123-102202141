@@ -57,7 +57,7 @@ wx.cloud.init({
   env: 'your-cloud-environment-id', // 替换为您在云开发控制台创建的环境 ID
   traceUser: true,
 });
-```javascript
+
 ## 主要页面与结构
 
 ### 1. 隐私政策页面 - `pages/privacy/privacy`
