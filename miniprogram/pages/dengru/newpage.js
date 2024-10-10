@@ -14,7 +14,40 @@ Page({
     wx.hideTabBar(); // 隐藏底部 tabBar
     this.checkLoginStatus(); // 检查登录状态，如果已登录，则自动跳转
   },
+  checkPrivacyAndLoginStatus: function() {
+    const hasAgreedPrivacyPolicy = wx.getStorageSync('hasAgreedPrivacyPolicy');
+    const userOpenid = wx.getStorageSync('user_openid');
 
+    if (hasAgreedPrivacyPolicy && userOpenid) {
+      // 用户已同意隐私政策且已登录
+      wx.switchTab({
+        url: '/pages/myself/myself' // 跳转到个人主页
+      });
+    } else if (!hasAgreedPrivacyPolicy) {
+      // 弹出隐私政策同意弹窗
+      this.showPrivacyModal();
+    }
+  },
+
+  // 弹出隐私政策同意弹窗
+  showPrivacyModal: function() {
+    wx.showModal({
+      title: '隐私政策',
+      content: '请阅读并同意我们的隐私政策以继续使用本应用。',
+      showCancel: false,
+      success: (res) => {
+        if (res.confirm) {
+          wx.setStorageSync('hasAgreedPrivacyPolicy', true);
+          // 重新检查是否登录
+          if (wx.getStorageSync('user_openid')) {
+            wx.switchTab({
+              url: '/pages/myself/myself'
+            });
+          }
+        }
+      }
+    });
+  },
   // 页面卸载时的操作
   onUnload: function() {
     wx.showTabBar(); // 当页面卸载时显示 tabBar

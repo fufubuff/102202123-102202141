@@ -21,7 +21,7 @@
         <text>项目详情</text>
       </view>
       <view class="project-content">
-        <view class="textarea-placeholder fixed-size">{{projectName}}</view>
+        <view class="textarea-placeholder fixed-size">{{projectDescription}}</view>
       </view>
     </view>
   </view>

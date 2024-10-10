@@ -34,7 +34,7 @@ Page({
             contact: postDetails.contact,
             peopleNeeded: postDetails.peopleNeeded,
             projectName: postDetails.title,
-            projectDescription: postDetails.projectDescription,
+            projectDescription: postDetails.content,
             personNeed: postDetails.personNeed,
             keyword1: postDetails.tags[0] || '',
             keyword2: postDetails.tags[1] || '',

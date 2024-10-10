@@ -44,11 +44,8 @@
       <block wx:for="{{friends}}" wx:key="openid">
         <view class="friend-item" bindtap="onSelectFriend" data-openid="{{item.openid}}">
           <image class="avatar" src="{{item.avatarUrl}}" binderror="onImageError" />
-          <text class="nickname">{{item.name}}</text>
+          <text class="name-or-nickname">{{ item.name ? item.name : item.nickname }}</text>
           <!-- 未读消息红点 -->
-          <view wx:if="{{item.unreadCount > 0}}" class="unread-badge">
-            <text>{{item.unreadCount}}</text>
-          </view>
         </view>
       </block>
       <!-- 分页加载提示 -->

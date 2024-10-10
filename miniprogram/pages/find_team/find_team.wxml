@@ -36,7 +36,7 @@
       </view>
 
       <view wx:if="{{isEditingProjectDescription}}">
-        <textarea placeholder="请输入项目描述..." value="{{projectDescription}}" bindinput="editProjectDescription"></textarea>
+        <textarea maxlength='-1' placeholder="请输入项目描述..." value="{{projectDescription}}" bindinput="editProjectDescription"></textarea>
         <button class="save-button" bindtap="saveProjectDescriptionEdit">完成</button>
       </view>
     </view>
@@ -58,7 +58,7 @@
       </view>
 
       <view wx:if="{{isEditingPersonNeed}}">
-        <textarea placeholder="请输入人员需求..." value="{{personNeed}}" bindinput="editPersonNeed"></textarea>
+        <textarea maxlength='-1' placeholder="请输入人员需求..." value="{{personNeed}}" bindinput="editPersonNeed"></textarea>
         <button class="save-button" bindtap="savePersonNeedEdit">完成</button>
       </view>
     </view>

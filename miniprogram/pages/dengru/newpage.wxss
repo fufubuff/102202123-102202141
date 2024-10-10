@@ -24,6 +24,7 @@ page {
   justify-content: center;
   height: 100%;
   margin-top: 130px;
+  flex-grow: 1; /* 允许容器扩展以包含子元素 */ 
 }
 
 .background-image {
@@ -85,3 +86,11 @@ page {
   background-color: #00000000;  /* 线的颜色 */
   margin: 100px 0;  /* 线的上下边距 */
 }
+
+.register-button {  
+  margin-top: -10px; /* 与登录按钮的间距 */  
+  color: #007aff; /* 蓝色字样 */  
+  text-decoration: underline; /* 下划线 */  
+  font-size: 12px; /* 字体大小 */  
+  cursor: pointer; /* 鼠标指针样式 */  
+}  

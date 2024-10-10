@@ -9,7 +9,7 @@
 .profile-container {
   position: relative;
   width: 100%;
-  height: 35vh; /* 调整背景图高度以适应中间的 Tab栏 */
+  height: 32vh; /* 调整背景图高度以适应中间的 Tab栏 */
 }
 
 .background-img {
@@ -20,13 +20,14 @@
 
 .avatar-container {  
   position: absolute;  
-  bottom: 10px; /* 将头像部分向下移动，以便悬浮于背景之上 */  
+  bottom: -20px; /* 将头像部分向下移动，以便悬浮于背景之上 */  
   right: 10px; /* 头像靠右侧 */  
   display: flex;  
   align-items: center; /* 确保子元素在垂直方向上中心对齐 */  
   flex-direction: row-reverse; /* 反转 flex 子元素的顺序，使名称位于头像左侧 */  
+
 }  
-  
+
 .avatar {  
   width: 70px;  
   height: 70px;  
@@ -57,11 +58,11 @@
   border: none;
   /* 保持固定定位 */
   position: fixed;
-  top: 305px; /* 与 profile-container 高度一致 */
+  top: 297px; /* 与 profile-container 高度一致 */
   left: 0;
   right: 0;
   /* 根据图片高度调整 tab-bar 高度 */
-  height: 35px; /* 调整为适合图片的高度 */
+  height: 30px; /* 调整为适合图片的高度 */
   /* 移除阴影或其他可能的背景效果 */
   box-shadow: none;
   /* 可选：设置透明度 */
@@ -357,7 +358,7 @@
 .signature {
   position: absolute; /* 设置绝对定位 */
   right: 0; /* 设置元素到页面左侧的距离为0 */
-  bottom: -35px; /* 根据需要调整与页面底部的间距 */
+  bottom: -38px; /* 根据需要调整与页面底部的间距 */
   font-size: 14px; /* 字体大小 */
   color: #999; /* 灰色字体 */
   max-width: 100%; /* 确保签名的最大宽度为100% */

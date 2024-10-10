@@ -82,13 +82,14 @@ Page({
           console.log('app:', app); // 打印 app 对象以检查其状态  
           console.log('app.globalData:', app.globalData); // 打印 globalData 以确保其已定义  
           wx.clearStorageSync();
+          wx.removeStorageSync('hasAgreedPrivacyPolicy');
           // 清除本地存储，模拟退出登录  
           if (app.globalData) {
             app.globalData.user_openid = null;
             app.globalData.userInfo = null; // 如果存储了用户信息，也应一并清除
         }
           wx.navigateTo({  
-            url: '/pages/dengru/newpage'
+            url: '/pages/privacy/privacy'
           });
         }  
       }  

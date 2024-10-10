@@ -1,0 +1,18 @@
+<!-- home.wxml -->
+<view class="container">
+  <view class="modal">
+    <view class="modal-content">
+      <text class="modal-title">隐私政策同意</text>
+      <text class="modal-text">
+        欢迎使用我们的校际组队平台！为了协调跨校学生参与比赛与项目的需求，我们需要收集您的基本信息，如专业、联系方式等。
+        请您仔细阅读
+        <text class="highlight" bindtap="viewPrivacyPolicy">《隐私政策》</text>，
+        了解我们如何收集、使用、存储您的个人信息。我们承诺，收集的信息仅用于组队目的，不会用于其他用途。
+      </text>
+      <view class="button-group">
+        <button bindtap="disagreePrivacyPolicy">不同意</button>
+        <button bindtap="agreePrivacyPolicy">同意并继续</button>
+      </view>
+    </view>
+  </view>
+</view>

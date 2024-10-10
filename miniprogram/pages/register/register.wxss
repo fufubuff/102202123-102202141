@@ -1,83 +1,108 @@
-/* 容器整体 */
-.container {
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  padding: 20px;
-  background-color: #ffffff;
-  height: 100vh;
-  overflow-y: scroll;
-}
+/* 容器整体 */  
+.container {  
+  display: flex;  
+  flex-direction: column;  
+  align-items: center;  
+  padding: 20px;  
+  background-color: #ffffff;  
+  height: 100vh;  
+  overflow-y: scroll;  
+}  
+  
+/* 输入框样式 */  
+.input {  
+  width: 80%;  
+  padding: 10px;  
+  margin: 10px 0;  
+  border: 1px solid #ccc;  
+  border-radius: 5px;  
+}  
+  
+/* 注册按钮样式 */  
+.register-button {  
+  width: 80%;  
+  padding: 10px;  
+  margin-top: 20px;  
+  background-color: #007aff;  
+  color: white;  
+  border: none;  
+  border-radius: 5px;  
+  font-size: 16px;  
+  cursor: pointer;  
+}  
+  
+.register-button:hover {  
+  background-color: #007aff;  
+}  
+  
+/* 头像选择区域 */  
+.avatar-selection {  
+  width: 80%;  
+  margin: 20px 0;  
+}  
+  
+.section-title {  
+  font-size: 16px;  
+  color: #007aff;  
+  margin-bottom: 10px;  
+  font-weight: bold;
+}  
+  
+/* 头像容器 */  
+.avatars-container {  
+  display: flex;  
+  flex-wrap: wrap;  
+  justify-content: space-between;  
+  width: 100%; /* 确保容器宽度为 100% */  
+}  
+  
+/* 单个头像样式 */  
+.avatar-option {  
+  width: 100px; /* 每行 4 个头像，减去间距 */  
+  height: 100px;  
+  margin-bottom: 10px;  
+  border: 2px solid transparent;  
+  border-radius: 5px;  
+  cursor: pointer;  
+  transition: border-color 0.3s ease, transform 0.3s ease;  
+  box-sizing: border-box; /* 确保宽度计算包括边框 */ 
 
-/* 输入框样式 */
-.input {
-  width: 80%;
-  padding: 10px;
-  margin: 10px 0;
-  border: 1px solid #ccc;
-  border-radius: 5px;
-}
-
-/* 注册按钮样式 */
-.register-button {
-  width: 80%;
-  padding: 10px;
-  margin-top: 20px;
-  background-color: #1977ad;
-  color: white;
-  border: none;
-  border-radius: 5px;
-  font-size: 16px;
-  cursor: pointer;
-}
-
-.register-button:hover {
-  background-color: #045c97;
-}
-
-/* 头像选择区域 */
-.avatar-selection {
-  width: 80%;
-  margin: 20px 0;
-}
-
-.section-title {
-  font-size: 16px;
-  color: #333;
-  margin-bottom: 10px;
-}
-
-/* 头像容器 */
-.avatars-container {
-  display: flex;
-  flex-wrap: wrap;
-  justify-content: space-between;
-}
-
-/* 单个头像样式 */
-.avatar-option {
-  width: 80px;
-  height: 80px;
-  margin-bottom: 10px;
-  border: 2px solid transparent;
-  border-radius: 5px;
-  cursor: pointer;
-  transition: border-color 0.3s ease, transform 0.3s ease;
-}
-
-.avatar-option.selected {
-  border-color: #1173e2;
-  transform: scale(1.05);
-}
-
-/* 响应式设计 */
-@media screen and (max-width: 768px) {
-  .input, .register-button, .avatar-selection {
-    width: 95%;
-  }
-
-  .avatar-option {
-    width: 60px;
-    height: 60px;
-  }
+  /* 响应式设计调整 */  
+  flex: 0 0 auto; /* 防止flex项目在必要时缩小 */  
+    
+  /* 修正间距，确保每行4个头像（在较大屏幕上） */  
+  margin-right: 10px;  
+    
+  /* 移除原有的宽度计算，因为它可能不适用于所有情况 */  
+  /* width: calc(25% - 10px); */  
+}  
+  
+/* 修正每行的最后一个头像的右边距 */  
+.avatar-option:nth-child(4n) {  
+  margin-right: 0;  
+}  
+.avatar-option.selected {  
+  border-color: #1173e2;  
+  transform: scale(1.05);  
+}  
+  
+/* 响应式设计 */  
+@media screen and (max-width: 768px) {  
+  .avatar-option {  
+    /* 在小屏幕上调整头像大小 */  
+    width: 60px; /* 或根据实际需要调整 */  
+    height: 60px; /* 与宽度相同 */  
+    margin-bottom: 5px; /* 在小屏幕上调整间距 */  
+      
+    /* 修正间距，确保每行2个头像（在小屏幕上） */  
+    margin-right: 5px;  
+      
+    /* 移除原有的宽度计算，因为它可能不适用于小屏幕 */  
+    /* width: calc(50% - 5px); */  
+  }  
+    
+  /* 修正小屏幕上每行的最后一个头像的右边距 */  
+  .avatar-option:nth-child(2n) {  
+    margin-right: 0;  
+  }  
 }

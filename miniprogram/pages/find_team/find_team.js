@@ -7,10 +7,10 @@ Page({
     userName: '',
     contact: '',
     peopleNeeded: '',
-    projectDescription: '项目资料详细内容...',
+    projectDescription: '项目资料详情...',
     displayText: '',
     maxLength: 80,
-    personNeed: '人员需求详细内容...',
+    personNeed: '人员需求详情...',
     displayPersonText: '',
     keyword1: '',
     keyword2: '',
@@ -62,8 +62,8 @@ Page({
       contact: user.contact || '',
       peopleNeeded: user.peopleNeeded || '',
       projectNamePlaceholder: user.projectName || '',
-      projectDescription: user.projectDescription || '项目资料详细内容...',
-      personNeed: user.personNeed || '人员需求详细内容...'
+      projectDescription: user.projectDescription || '项目资料详情...',
+      personNeed: user.personNeed || '人员需求详情...'
     });
     this.setDisplayText();
     this.setDisplayPersonText();
@@ -76,8 +76,8 @@ Page({
       contact: '',
       peopleNeeded: '',
       projectNamePlaceholder: '',
-      projectDescription: '项目资料详细内容...',
-      personNeed: '人员需求详细内容...'
+      projectDescription: '项目资料详情...',
+      personNeed: '人员需求详情...'
     });
     this.setDisplayText();
     this.setDisplayPersonText();
@@ -167,9 +167,9 @@ Page({
    * 提交队友招募详情至数据库
    */
   submitDetails: function () {
-    const { contact, peopleNeeded, projectDescription, personNeed, keyword1, keyword2, keyword3 } = this.data;
+    const { contact, peopleNeeded, projectDescription, personNeed, keyword1, keyword2, keyword3,projectNamePlaceholder } = this.data;
 
-    if (!contact || !peopleNeeded || !projectDescription || !personNeed || !keyword1 || !keyword2 || !keyword3) {
+    if (!contact || !peopleNeeded || !projectDescription || !personNeed || !keyword1 || !keyword2 || !keyword3 || !projectNamePlaceholder) {
       wx.showToast({
         title: '请填写完整信息',
         icon: 'none'
@@ -199,7 +199,9 @@ Page({
         openid: openid, // 添加发布人的 openid
         tags: [keyword1, keyword2, keyword3], // 数据库中保存关键词作为 
         time: new Date().toLocaleString(), // 保存当前的日期和时间
-        title: projectDescription, // 保存项目描述为标题
+        title: projectNamePlaceholder,
+        content:projectDescription,
+         // 保存项目描述为标题
         contact: contact, // 添加联系方式
         peopleNeeded: peopleNeeded, // 添加人员需求
         personNeed: personNeed, // 添加人员需求详细信息
