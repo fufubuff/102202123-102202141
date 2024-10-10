@@ -1,19 +1,27 @@
 {
   "pages": [
+    "pages/privacy/privacy",
+    "pages/dengru/newpage",
+    "pages/evaluation/evaluation",
+    "pages/myself/myself",
     "pages/profile/profile",
+    "pages/square/square",
+    "pages/editProfile/editProfile",
+    "pages/add/add",
     "pages/register/register",
+    "pages/self_recommendation/self_recommendation",
+    "pages/find_team/find_team",
     "pages/recruitmentDetail/recruitmentDetail",
+    "pages/find_team_detail/find_team_detail",
     "pages/friends/friends",
     "pages/chat/chat",
-    "pages/square/square",
-    "pages/add/add",
-    "pages/dengru/newpage",
-    "pages/avatarSelect/avatarSelect"
+    "pages/avatarSelect/avatarSelect",
+    "pages/person_need/person_need"
   ],
   "window": {
-    "navigationBarBackgroundColor": "#ffffff",
+    "navigationBarTitleText": "赢合系",
     "navigationBarTextStyle": "black",
-    "navigationBarTitleText": "广场"
+    "navigationBarBackgroundColor": "#ffffff"
   },
   "tabBar": {
     "color": "#a6a6a6",
@@ -40,7 +48,7 @@
         "selectedIconPath": "icons/business-active.png"
       },
       {
-        "pagePath": "pages/profile/profile",
+        "pagePath": "pages/myself/myself",
         "text": "我的",
         "iconPath": "icons/usercenter.png",
         "selectedIconPath": "icons/usercenter-active.png"
